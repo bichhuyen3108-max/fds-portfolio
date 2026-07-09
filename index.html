@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,8 +18,19 @@
       --yellow: #fbbf24;
       --red: #f87171;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
     header {
       background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%);
@@ -26,343 +38,576 @@
       padding: 48px 32px 40px;
       text-align: center;
     }
+
     header .badge {
-      display: inline-block; background: var(--accent-soft); color: var(--accent);
-      border: 1px solid var(--accent); border-radius: 999px; font-size: 0.75rem;
-      font-weight: 600; letter-spacing: 0.08em; padding: 4px 14px; margin-bottom: 16px; text-transform: uppercase;
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 4px 14px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
     }
-    header h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
-    header p  { color: var(--muted); font-size: 0.95rem; }
-    header .meta { margin-top: 20px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
-    header .meta span { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--muted); }
-    header .meta span strong { color: var(--text); }
-    header .links { margin-top: 16px; display: flex; justify-content: center; gap: 12px; }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    header .meta {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    header .meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    header .meta span strong {
+      color: var(--text);
+    }
+
+    header .links {
+      margin-top: 16px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
     header .links a {
-      color: var(--accent); font-size: 0.82rem; text-decoration: none;
-      border: 1px solid var(--border); border-radius: 6px; padding: 4px 12px; transition: border-color 0.2s;
+      color: var(--accent);
+      font-size: 0.82rem;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 12px;
+      transition: border-color 0.2s;
     }
-    header .links a:hover { border-color: var(--accent); }
+
+    header .links a:hover {
+      border-color: var(--accent);
+    }
 
     nav {
-      position: sticky; top: 0; z-index: 10;
-      background: var(--surface); border-bottom: 1px solid var(--border);
-      padding: 0 32px; display: flex; gap: 4px; overflow-x: auto;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 32px;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
     }
-    nav a {
-      display: inline-block; padding: 14px 16px; color: var(--muted); text-decoration: none;
-      font-size: 0.85rem; white-space: nowrap; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s;
-    }
-    nav a:hover, nav a.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-    main { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+    nav a {
+      display: inline-block;
+      padding: 14px 16px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
 
     .about-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-      padding: 28px; margin-bottom: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 24px;
     }
-    .about-card h2 { font-size: 1rem; color: var(--accent); margin-bottom: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
-    .about-card p { color: var(--muted); font-size: 0.93rem; }
-    .about-card p + p { margin-top: 10px; }
+
+    .about-card h2 {
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .about-card p+p {
+      margin-top: 10px;
+    }
 
     .project-card {
-      background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
-      border-radius: 10px; padding: 16px 22px; margin-bottom: 40px; font-size: 0.88rem; color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 16px 22px;
+      margin-bottom: 40px;
+      font-size: 0.88rem;
+      color: var(--muted);
     }
-    .project-card strong { color: var(--text); }
-    .project-card a { color: var(--accent); text-decoration: none; }
 
-    .section { margin-bottom: 56px; scroll-margin-top: 56px; }
+    .project-card strong {
+      color: var(--text);
+    }
+
+    .project-card a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .section {
+      margin-bottom: 56px;
+      scroll-margin-top: 56px;
+    }
+
     .section-header {
-      display: flex; align-items: center; gap: 14px;
-      margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
     }
+
     .section-header .num {
-      background: var(--accent-soft); color: var(--accent); border-radius: 8px;
-      font-size: 0.8rem; font-weight: 700; padding: 4px 10px; letter-spacing: 0.05em;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      letter-spacing: 0.05em;
     }
-    .section-header h2 { font-size: 1.15rem; font-weight: 600; }
-    .section-header .stars { margin-left: auto; color: var(--yellow); font-size: 0.9rem; }
 
-    .query-list { display: flex; flex-direction: column; gap: 12px; }
+    .section-header h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .section-header .stars {
+      margin-left: auto;
+      color: var(--yellow);
+      font-size: 0.9rem;
+    }
+
+    .query-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
     .query-card {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
-      padding: 18px 20px; display: grid; grid-template-columns: 1fr auto; gap: 8px; transition: border-color 0.2s;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      transition: border-color 0.2s;
     }
-    .query-card:hover { border-color: var(--accent); }
-    .query-card .qid { font-size: 0.75rem; font-weight: 700; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 4px; }
-    .query-card .title { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
-    .query-card .desc  { font-size: 0.85rem; color: var(--muted); }
-    .query-card .tags  { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .tag { background: #1e2530; border: 1px solid var(--border); border-radius: 6px; font-size: 0.72rem; color: var(--muted); padding: 2px 8px; }
+
+    .query-card:hover {
+      border-color: var(--accent);
+    }
+
+    .query-card .qid {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .query-card .title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .query-card .desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .query-card .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      background: #1e2530;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding: 2px 8px;
+    }
+
     .query-card .link-btn {
-      align-self: start; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent);
-      border-radius: 6px; font-size: 0.75rem; font-weight: 600; padding: 5px 12px;
-      text-decoration: none; white-space: nowrap; transition: background 0.2s;
+      align-self: start;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
     }
-    .query-card .link-btn:hover { background: var(--accent); color: #fff; }
 
-    .schema-box { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-top: 12px; }
-    .schema-box pre { font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 0.82rem; color: #a5b4fc; overflow-x: auto; }
+    .query-card .link-btn:hover {
+      background: var(--accent);
+      color: #fff;
+    }
 
-    footer { text-align: center; padding: 32px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; }
-    footer a { color: var(--accent); text-decoration: none; }
+    .schema-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 12px;
+    }
+
+    .schema-box pre {
+      font-family: 'Cascadia Code', 'Fira Code', monospace;
+      font-size: 0.82rem;
+      color: #a5b4fc;
+      overflow-x: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="badge">FDS SQL Portfolio</div>
-  <h1>이상금융거래탐지 (FDS)</h1>
-  <p>PostgreSQL 기반 이상거래 탐지 쿼리 포트폴리오 · Hanpass FDS 모니터링 지원</p>
-  <div class="meta">
-    <span>👤 <strong>황티빅후엔 (Hoàng Thị Bích Huyền)</strong></span>
-    <span>🎓 <strong>숭실대학교 MBA (Finance/Real Estate)</strong></span>
-    <span>🗄️ <strong>PostgreSQL</strong></span>
-    <span>📄 <strong>쿼리 16개</strong></span>
-  </div>
-  <div class="links">
-    <a href="https://github.com/bichhuyen3108-max" target="_blank">GitHub</a>
-    <a href="https://bichhuyen3108-max.github.io/portfolio/" target="_blank">Portfolio</a>
-    <a href="./README.md">README</a>
-    <a href="./schema.sql">Schema</a>
-  </div>
-</header>
+  <header>
+    <div class="badge">FDS SQL Portfolio</div>
+    <h1>이상금융거래탐지 (FDS)</h1>
+    <p>PostgreSQL 기반 이상거래 탐지 쿼리 포트폴리오 · Hanpass FDS 모니터링 지원</p>
+    <div class="meta">
+      <span>👤 <strong>황티빅후엔 (HOANG THI BICH HUYEN)</strong></span>
+      <span>🎓 <strong>숭실대학교 MBA (Finance/Real Estate)</strong></span>
+      <span>🗄️ <strong>PostgreSQL</strong></span>
+      <span>📄 <strong>쿼리 16개</strong></span>
+    </div>
+    <div class="links">
+      <a href="https://github.com/bichhuyen3108-max" target="_blank">GitHub</a>
+      <a href="https://bichhuyen3108-max.github.io/portfolio/" target="_blank">Portfolio</a>
+      <a href="./README.md">README</a>
+      <a href="./schema.sql">Schema</a>
+    </div>
+  </header>
 
-<nav>
-  <a href="#about">소개</a>
-  <a href="#section1">01 기본 집계</a>
-  <a href="#section2">02 날짜·시간</a>
-  <a href="#section3">03 CTE</a>
-  <a href="#section4">04 JOIN 탐지</a>
-  <a href="#section5">05 윈도우 함수</a>
-  <a href="#section6">06 복합 조건</a>
-  <a href="#schema">스키마</a>
-</nav>
+  <nav>
+    <a href="#about">소개</a>
+    <a href="#section1">01 기본 집계</a>
+    <a href="#section2">02 날짜·시간</a>
+    <a href="#section3">03 CTE</a>
+    <a href="#section4">04 JOIN 탐지</a>
+    <a href="#section5">05 윈도우 함수</a>
+    <a href="#section6">06 복합 조건</a>
+    <a href="#schema">스키마</a>
+  </nav>
 
-<main>
+  <main>
 
-  <div class="about-card" id="about">
-    <h2>소개</h2>
-    <p>안녕하세요. 베트남 출신으로 현재 한국에 거주하며 금융 데이터 분야에서 커리어를 쌓고 있습니다.
-    숭실대학교에서 Finance/Real Estate MBA를 마쳤고, 현재 Korea IT Academy에서
-    JAVA & PYTHON 기반 빅데이터 분석 AI 플랫폼 개발자 과정을 수강 중입니다.
-    TOPIK II 5급을 보유하고 있으며, SQL·Python을 활용한 데이터 분석 프로젝트를 꾸준히 진행하고 있습니다.</p>
-    <p>이 포트폴리오는 Hanpass FDS 모니터링 업무를 염두에 두고,
-    실무에서 바로 쓸 수 있는 이상거래 탐지 쿼리를 PostgreSQL로 직접 구현한 것입니다.
-    단순 집계에서 시작해 Rule 성능 평가·블랙리스트 탐지까지 단계적으로 구성했습니다.</p>
-  </div>
+    <div class="about-card" id="about">
+      <h2>소개</h2>
+      <p>안녕하세요. 베트남 출신으로 현재 한국에 거주하며 금융 데이터 분야에서 커리어를 쌓고 있습니다.
+        숭실대학교에서 Finance/Real Estate MBA를 마쳤고, 현재 Korea IT Academy에서
+        JAVA & PYTHON 기반 빅데이터 분석 AI 플랫폼 개발자 과정을 수강 중입니다.
+        SQL·Python을 활용한 데이터 분석 프로젝트를 꾸준히 진행하고 있습니다.</p>
+      <p>이 포트폴리오는 한패스 FDS 모니터링 업무를 염두에 두고,
+        실무에서 바로 쓸 수 있는 이상거래 탐지 쿼리를 PostgreSQL로 직접 구현한 것입니다.
+        단순 집계에서 시작해 Rule 성능 평가·블랙리스트 탐지까지 단계적으로 구성했습니다.</p>
+    </div>
 
-  <div class="project-card">
-    <strong>관련 프로젝트 —</strong> 한국 반도체 포트폴리오 시장위험 분석: Samsung Electronics, SK Hynix, Samsung SDI에 대해 Historical VaR, GARCH VaR, Stress Testing을 Python으로 구현 ·
-    <a href="https://github.com/bichhuyen3108-max/semiconductor-portfolio-risk" target="_blank">GitHub</a> ·
-    <a href="https://bichhuyen3108-max.github.io/portfolio/" target="_blank">Portfolio</a>
-  </div>
+    <div class="project-card">
+      <strong>관련 프로젝트 —</strong> 한국 반도체 포트폴리오 시장위험 분석: Samsung Electronics, SK Hynix, Samsung SDI에 대해 Historical VaR,
+      GARCH VaR, Stress Testing을 Python으로 구현 ·
+      <a href="https://github.com/bichhuyen3108-max/semiconductor-portfolio-risk" target="_blank">GitHub</a> ·
+      <a href="https://bichhuyen3108-max.github.io/fds-portfolio/" target="_blank">Portfolio</a>
+    </div>
 
-  <!-- Section 01 -->
-  <section class="section" id="section1">
-    <div class="section-header">
-      <span class="num">01</span><h2>기본 집계 (Basic Aggregation)</h2><span class="stars">⭐</span>
-    </div>
-    <div class="query-list">
-      <div class="query-card">
-        <div>
-          <div class="qid">Q01</div>
-          <div class="title">전체 거래 중 Fraud 건수 및 비율 조회</div>
-          <div class="desc">FDS 데이터를 처음 접할 때 가장 먼저 파악해야 하는 전체 현황. CASE WHEN과 FILTER 두 가지 방식을 비교합니다.</div>
-          <div class="tags"><span class="tag">CASE WHEN</span><span class="tag">FILTER</span><span class="tag">ROUND</span></div>
-        </div>
-        <a class="link-btn" href="./portfolio/01_basic_aggregation/Q01_fraud_rate_overview.sql">SQL 보기</a>
+    <!-- Section 01 -->
+    <section class="section" id="section1">
+      <div class="section-header">
+        <span class="num">01</span>
+        <h2>기본 집계 (Basic Aggregation)</h2><span class="stars">⭐</span>
       </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q02</div>
-          <div class="title">Fraud 유형별 건수 및 평균 금액 분석</div>
-          <div class="desc">어떤 fraud 유형이 가장 피해 금액이 큰지 파악하여 Rule 우선순위를 정하는 근거로 활용합니다.</div>
-          <div class="tags"><span class="tag">GROUP BY</span><span class="tag">AVG</span><span class="tag">ORDER BY</span></div>
+      <div class="query-list">
+        <div class="query-card">
+          <div>
+            <div class="qid">Q01</div>
+            <div class="title">전체 거래 중 Fraud 건수 및 비율 조회</div>
+            <div class="desc">FDS 데이터를 처음 접할 때 가장 먼저 파악해야 하는 전체 현황. CASE WHEN과 FILTER 두 가지 방식을 비교합니다.</div>
+            <div class="tags"><span class="tag">CASE WHEN</span><span class="tag">FILTER</span><span
+                class="tag">ROUND</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/01_basic_aggregation/Q01_fraud_rate_overview.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/01_basic_aggregation/Q02_fraud_by_type.sql">SQL 보기</a>
-      </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q03</div>
-          <div class="title">채널별 Fraud 발생 건수</div>
-          <div class="desc">모바일·온라인·오프라인 채널 중 fraud가 집중되는 채널을 확인하여 채널 특화 Rule을 설계합니다.</div>
-          <div class="tags"><span class="tag">FILTER 집계</span><span class="tag">GROUP BY</span></div>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q02</div>
+            <div class="title">Fraud 유형별 건수 및 평균 금액 분석</div>
+            <div class="desc">어떤 fraud 유형이 가장 피해 금액이 큰지 파악하여 Rule 우선순위를 정하는 근거로 활용합니다.</div>
+            <div class="tags"><span class="tag">GROUP BY</span><span class="tag">AVG</span><span class="tag">ORDER
+                BY</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/01_basic_aggregation/Q02_fraud_by_type.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/01_basic_aggregation/Q03_fraud_by_channel.sql">SQL 보기</a>
-      </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q14</div>
-          <div class="title">신용등급별 Fraud 발생률 분석</div>
-          <div class="desc">신용 리스크와 fraud 리스크의 상관관계를 파악하여 등급별 정책 수립의 데이터 근거를 제공합니다.</div>
-          <div class="tags"><span class="tag">JOIN</span><span class="tag">GROUP BY</span><span class="tag">FILTER</span></div>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q03</div>
+            <div class="title">채널별 Fraud 발생 건수</div>
+            <div class="desc">모바일·온라인·오프라인 채널 중 fraud가 집중되는 채널을 확인하여 채널 특화 Rule을 설계합니다.</div>
+            <div class="tags"><span class="tag">FILTER 집계</span><span class="tag">GROUP BY</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/01_basic_aggregation/Q03_fraud_by_channel.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/01_basic_aggregation/Q14_fraud_by_credit_grade.sql">SQL 보기</a>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q14</div>
+            <div class="title">신용등급별 Fraud 발생률 분석</div>
+            <div class="desc">신용 리스크와 fraud 리스크의 상관관계를 파악하여 등급별 정책 수립의 데이터 근거를 제공합니다.</div>
+            <div class="tags"><span class="tag">JOIN</span><span class="tag">GROUP BY</span><span
+                class="tag">FILTER</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/01_basic_aggregation/Q14_fraud_by_credit_grade.sql">SQL 보기</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Section 02 -->
-  <section class="section" id="section2">
-    <div class="section-header">
-      <span class="num">02</span><h2>날짜·시간 함수 (Date-Time Functions)</h2><span class="stars">⭐⭐</span>
-    </div>
-    <div class="query-list">
-      <div class="query-card">
-        <div>
-          <div class="qid">Q04</div>
-          <div class="title">새벽(00~05시) 거래 정상 vs Fraud 비교</div>
-          <div class="desc">시간대 기반 Rule의 필요성을 검증합니다. 새벽 fraud 비율이 전체보다 높다면 해당 시간대 추가 인증을 적용합니다.</div>
-          <div class="tags"><span class="tag">EXTRACT(HOUR)</span><span class="tag">BETWEEN</span><span class="tag">FILTER</span></div>
-        </div>
-        <a class="link-btn" href="./portfolio/02_datetime_functions/Q04_late_night_analysis.sql">SQL 보기</a>
+    <!-- Section 02 -->
+    <section class="section" id="section2">
+      <div class="section-header">
+        <span class="num">02</span>
+        <h2>날짜·시간 함수 (Date-Time Functions)</h2><span class="stars">⭐⭐</span>
       </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q10</div>
-          <div class="title">가입 7일 이내 고액 거래 탐지 (입회사기)</div>
-          <div class="desc">가입 직후 고액 거래를 일으키는 입회사기(Enrollment Fraud) 패턴을 날짜 산술로 탐지합니다.</div>
-          <div class="tags"><span class="tag">DATE()</span><span class="tag">INTERVAL</span><span class="tag">BETWEEN</span><span class="tag">JOIN</span></div>
+      <div class="query-list">
+        <div class="query-card">
+          <div>
+            <div class="qid">Q04</div>
+            <div class="title">새벽(00~05시) 거래 정상 vs Fraud 비교</div>
+            <div class="desc">시간대 기반 Rule의 필요성을 검증합니다. 새벽 fraud 비율이 전체보다 높다면 해당 시간대 추가 인증을 적용합니다.</div>
+            <div class="tags"><span class="tag">EXTRACT(HOUR)</span><span class="tag">BETWEEN</span><span
+                class="tag">FILTER</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/02_datetime_functions/Q04_late_night_analysis.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/02_datetime_functions/Q10_new_customer_fraud.sql">SQL 보기</a>
-      </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q12</div>
-          <div class="title">월별 Fraud 발생 추이 분석</div>
-          <div class="desc">시간에 따른 fraud율 변화를 파악하여 Rule의 계절성 튜닝 시점을 결정합니다.</div>
-          <div class="tags"><span class="tag">DATE_TRUNC</span><span class="tag">CTE</span><span class="tag">FILTER</span></div>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q10</div>
+            <div class="title">가입 7일 이내 고액 거래 탐지 (입회사기)</div>
+            <div class="desc">가입 직후 고액 거래를 일으키는 입회사기(Enrollment Fraud) 패턴을 날짜 산술로 탐지합니다.</div>
+            <div class="tags"><span class="tag">DATE()</span><span class="tag">INTERVAL</span><span
+                class="tag">BETWEEN</span><span class="tag">JOIN</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/02_datetime_functions/Q10_new_customer_fraud.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/02_datetime_functions/Q12_monthly_fraud_trend.sql">SQL 보기</a>
-      </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q13</div>
-          <div class="title">Fraud 유형별 주요 발생 시간대 분석</div>
-          <div class="desc">각 fraud 유형이 새벽/오전/오후 중 어느 시간대에 집중되는지 파악하여 시간 복합 Rule을 설계합니다.</div>
-          <div class="tags"><span class="tag">EXTRACT</span><span class="tag">CASE WHEN</span><span class="tag">GROUP BY</span></div>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q12</div>
+            <div class="title">월별 Fraud 발생 추이 분석</div>
+            <div class="desc">시간에 따른 fraud율 변화를 파악하여 Rule의 계절성 튜닝 시점을 결정합니다.</div>
+            <div class="tags"><span class="tag">DATE_TRUNC</span><span class="tag">CTE</span><span
+                class="tag">FILTER</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/02_datetime_functions/Q12_monthly_fraud_trend.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/02_datetime_functions/Q13_fraud_by_time_slot.sql">SQL 보기</a>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q13</div>
+            <div class="title">Fraud 유형별 주요 발생 시간대 분석</div>
+            <div class="desc">각 fraud 유형이 새벽/오전/오후 중 어느 시간대에 집중되는지 파악하여 시간 복합 Rule을 설계합니다.</div>
+            <div class="tags"><span class="tag">EXTRACT</span><span class="tag">CASE WHEN</span><span class="tag">GROUP
+                BY</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/02_datetime_functions/Q13_fraud_by_time_slot.sql">SQL 보기</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Section 03 -->
-  <section class="section" id="section3">
-    <div class="section-header">
-      <span class="num">03</span><h2>CTE (Common Table Expressions)</h2><span class="stars">⭐⭐</span>
-    </div>
-    <div class="query-list">
-      <div class="query-card">
-        <div>
-          <div class="qid">Q05</div>
-          <div class="title">고객 1인당 평균 거래 건수·금액 (서브쿼리 vs CTE 비교)</div>
-          <div class="desc">동일한 결과를 서브쿼리와 CTE로 각각 구현하여 CTE의 가독성·재사용성 장점을 직접 확인합니다.</div>
-          <div class="tags"><span class="tag">WITH</span><span class="tag">인라인 뷰</span><span class="tag">AVG</span></div>
-        </div>
-        <a class="link-btn" href="./portfolio/03_cte/Q05_customer_avg_stats.sql">SQL 보기</a>
+    <!-- Section 03 -->
+    <section class="section" id="section3">
+      <div class="section-header">
+        <span class="num">03</span>
+        <h2>CTE (Common Table Expressions)</h2><span class="stars">⭐⭐</span>
       </div>
-    </div>
-  </section>
+      <div class="query-list">
+        <div class="query-card">
+          <div>
+            <div class="qid">Q05</div>
+            <div class="title">고객 1인당 평균 거래 건수·금액 (서브쿼리 vs CTE 비교)</div>
+            <div class="desc">동일한 결과를 서브쿼리와 CTE로 각각 구현하여 CTE의 가독성·재사용성 장점을 직접 확인합니다.</div>
+            <div class="tags"><span class="tag">WITH</span><span class="tag">인라인 뷰</span><span class="tag">AVG</span>
+            </div>
+          </div>
+          <a class="link-btn" href="./portfolio/03_cte/Q05_customer_avg_stats.sql">SQL 보기</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Section 04 -->
-  <section class="section" id="section4">
-    <div class="section-header">
-      <span class="num">04</span><h2>JOIN 기반 이상거래 탐지 (JOIN-based Detection)</h2><span class="stars">⭐⭐⭐</span>
-    </div>
-    <div class="query-list">
-      <div class="query-card">
-        <div>
-          <div class="qid">Q06</div>
-          <div class="title">1시간 내 반복 거래 탐지 (카드복제 패턴)</div>
-          <div class="desc">카드 복제 시 나타나는 단기 반복 거래 패턴을 Self-JOIN과 시간 구간 조건으로 탐지합니다.</div>
-          <div class="tags"><span class="tag">Self-JOIN</span><span class="tag">INTERVAL</span><span class="tag">HAVING</span></div>
-        </div>
-        <a class="link-btn" href="./portfolio/04_join_anomaly_detection/Q06_rapid_repeat_txn.sql">SQL 보기</a>
+    <!-- Section 04 -->
+    <section class="section" id="section4">
+      <div class="section-header">
+        <span class="num">04</span>
+        <h2>JOIN 기반 이상거래 탐지 (JOIN-based Detection)</h2><span class="stars">⭐⭐⭐</span>
       </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q08</div>
-          <div class="title">거주지 외 도시 거래 탐지 (타지역 이상거래)</div>
-          <div class="desc">고객 거주 도시와 거래 발생 도시를 비교하여 타지역 고액 거래를 복합 Rule의 서브조건으로 활용합니다.</div>
-          <div class="tags"><span class="tag">JOIN</span><span class="tag">부등호 조건</span><span class="tag">ORDER BY</span></div>
+      <div class="query-list">
+        <div class="query-card">
+          <div>
+            <div class="qid">Q06</div>
+            <div class="title">1시간 내 반복 거래 탐지 (카드복제 패턴)</div>
+            <div class="desc">카드 복제 시 나타나는 단기 반복 거래 패턴을 Self-JOIN과 시간 구간 조건으로 탐지합니다.</div>
+            <div class="tags"><span class="tag">Self-JOIN</span><span class="tag">INTERVAL</span><span
+                class="tag">HAVING</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/04_join_anomaly_detection/Q06_rapid_repeat_txn.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/04_join_anomaly_detection/Q08_out_of_area_txn.sql">SQL 보기</a>
-      </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q09</div>
-          <div class="title">같은 날 국내+해외 동시 거래 탐지 (불가능 여행)</div>
-          <div class="desc">물리적으로 불가능한 국내·해외 동시 사용 패턴을 Self-JOIN으로 탐지합니다. 실시간 차단 대상 1순위 시그널입니다.</div>
-          <div class="tags"><span class="tag">Self-JOIN</span><span class="tag">DATE()</span><span class="tag">IN</span></div>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q08</div>
+            <div class="title">거주지 외 도시 거래 탐지 (타지역 이상거래)</div>
+            <div class="desc">고객 거주 도시와 거래 발생 도시를 비교하여 타지역 고액 거래를 복합 Rule의 서브조건으로 활용합니다.</div>
+            <div class="tags"><span class="tag">JOIN</span><span class="tag">부등호 조건</span><span class="tag">ORDER
+                BY</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/04_join_anomaly_detection/Q08_out_of_area_txn.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/04_join_anomaly_detection/Q09_simultaneous_domestic_overseas.sql">SQL 보기</a>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q09</div>
+            <div class="title">같은 날 국내+해외 동시 거래 탐지 (불가능 여행)</div>
+            <div class="desc">물리적으로 불가능한 국내·해외 동시 사용 패턴을 Self-JOIN으로 탐지합니다. 실시간 차단 대상 1순위 시그널입니다.</div>
+            <div class="tags"><span class="tag">Self-JOIN</span><span class="tag">DATE()</span><span
+                class="tag">IN</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/04_join_anomaly_detection/Q09_simultaneous_domestic_overseas.sql">SQL
+            보기</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Section 05 -->
-  <section class="section" id="section5">
-    <div class="section-header">
-      <span class="num">05</span><h2>윈도우 함수 (Window Functions)</h2><span class="stars">⭐⭐⭐</span>
-    </div>
-    <div class="query-list">
-      <div class="query-card">
-        <div>
-          <div class="qid">Q07</div>
-          <div class="title">고객 평균의 5배 이상 거래 탐지 (개인화 탐지)</div>
-          <div class="desc">절댓값 기준이 아닌 '개인 평균 대비 배수'로 이상 거래를 탐지합니다. AVG OVER를 활용하여 전체 결과를 유지하면서 고객별 평균을 각 행에 함께 표시합니다.</div>
-          <div class="tags"><span class="tag">AVG() OVER</span><span class="tag">PARTITION BY</span><span class="tag">CTE</span></div>
-        </div>
-        <a class="link-btn" href="./portfolio/05_window_functions/Q07_high_value_anomaly.sql">SQL 보기</a>
+    <!-- Section 05 -->
+    <section class="section" id="section5">
+      <div class="section-header">
+        <span class="num">05</span>
+        <h2>윈도우 함수 (Window Functions)</h2><span class="stars">⭐⭐⭐</span>
       </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q11</div>
-          <div class="title">Rule 성능 평가 — 정탐률 / 재현율 / 오탐률 측정</div>
-          <div class="desc">Q07의 '평균 5배 이상' Rule에 대해 Precision(정탐률)·Recall(재현율)·FP Rate(오탐률)를 동시에 산출합니다. 스칼라 서브쿼리로 전체 fraud 수를 분모로 활용하여 재현율을 계산하는 것이 핵심입니다.</div>
-          <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">AVG() OVER</span><span class="tag">FILTER</span><span class="tag">스칼라 서브쿼리</span></div>
+      <div class="query-list">
+        <div class="query-card">
+          <div>
+            <div class="qid">Q07</div>
+            <div class="title">고객 평균의 5배 이상 거래 탐지 (개인화 탐지)</div>
+            <div class="desc">절댓값 기준이 아닌 '개인 평균 대비 배수'로 이상 거래를 탐지합니다. AVG OVER를 활용하여 전체 결과를 유지하면서 고객별 평균을 각 행에 함께 표시합니다.
+            </div>
+            <div class="tags"><span class="tag">AVG() OVER</span><span class="tag">PARTITION BY</span><span
+                class="tag">CTE</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/05_window_functions/Q07_high_value_anomaly.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/05_window_functions/Q11_rule_tp_fp_analysis.sql">SQL 보기</a>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q11</div>
+            <div class="title">Rule 성능 평가 — 정탐률 / 재현율 / 오탐률 측정</div>
+            <div class="desc">Q07의 '평균 5배 이상' Rule에 대해 Precision(정탐률)·Recall(재현율)·FP Rate(오탐률)를 동시에 산출합니다. 스칼라 서브쿼리로 전체
+              fraud 수를 분모로 활용하여 재현율을 계산하는 것이 핵심입니다.</div>
+            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">AVG() OVER</span><span
+                class="tag">FILTER</span><span class="tag">스칼라 서브쿼리</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/05_window_functions/Q11_rule_tp_fp_analysis.sql">SQL 보기</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Section 06 -->
-  <section class="section" id="section6">
-    <div class="section-header">
-      <span class="num">06</span><h2>복합 조건 탐지 (Multi-condition Detection)</h2><span class="stars">⭐⭐⭐⭐</span>
-    </div>
-    <div class="query-list">
-      <div class="query-card">
-        <div>
-          <div class="qid">Q15</div>
-          <div class="title">복합 조건 고위험 거래 탐지 + Rule 성능 평가</div>
-          <div class="desc">새벽 시간대 + 100만 원 이상 + 비대면 채널 + 개인 평균의 5배, 4가지 조건을 동시에 충족하는 거래를 탐지하고 정탐률·재현율·오탐률까지 한 쿼리에서 산출합니다. Q11의 단일 Rule 성능과 비교하면 복합 조건 추가 효과를 정량적으로 확인할 수 있습니다.</div>
-          <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">AVG() OVER</span><span class="tag">EXTRACT</span><span class="tag">다중 AND</span><span class="tag">스칼라 서브쿼리</span></div>
-        </div>
-        <a class="link-btn" href="./portfolio/06_multi_condition_detection/Q15_composite_risk_score.sql">SQL 보기</a>
+    <!-- Section 06 -->
+    <section class="section" id="section6">
+      <div class="section-header">
+        <span class="num">06</span>
+        <h2>복합 조건 탐지 (Multi-condition Detection)</h2><span class="stars">⭐⭐⭐⭐</span>
       </div>
-      <div class="query-card">
-        <div>
-          <div class="qid">Q16</div>
-          <div class="title">다중 패턴 기반 블랙리스트 고객 탐지</div>
-          <div class="desc">①1시간 내 반복 거래, ②평균 5배 이상 거래, ③국내+해외 동시 거래 — 3가지 패턴을 독립 CTE로 각각 탐지한 뒤, 2개 이상에 해당하는 고객을 고위험 고객으로 선별합니다. 각 패턴의 탐지 여부를 Y/N으로 표시하여 운영팀이 바로 활용할 수 있는 형태로 출력합니다.</div>
-          <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">Self-JOIN</span><span class="tag">AVG() OVER</span><span class="tag">LEFT JOIN</span><span class="tag">점수 합산</span></div>
+      <div class="query-list">
+        <div class="query-card">
+          <div>
+            <div class="qid">Q15</div>
+            <div class="title">복합 조건 고위험 거래 탐지 + Rule 성능 평가</div>
+            <div class="desc">새벽 시간대 + 100만 원 이상 + 비대면 채널 + 개인 평균의 5배, 4가지 조건을 동시에 충족하는 거래를 탐지하고 정탐률·재현율·오탐률까지 한 쿼리에서
+              산출합니다. Q11의 단일 Rule 성능과 비교하면 복합 조건 추가 효과를 정량적으로 확인할 수 있습니다.</div>
+            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">AVG() OVER</span><span
+                class="tag">EXTRACT</span><span class="tag">다중 AND</span><span class="tag">스칼라 서브쿼리</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/06_multi_condition_detection/Q15_composite_risk_score.sql">SQL 보기</a>
         </div>
-        <a class="link-btn" href="./portfolio/06_multi_condition_detection/Q16_blacklist_detection.sql">SQL 보기</a>
+        <div class="query-card">
+          <div>
+            <div class="qid">Q16</div>
+            <div class="title">다중 패턴 기반 블랙리스트 고객 탐지</div>
+            <div class="desc">①1시간 내 반복 거래, ②평균 5배 이상 거래, ③국내+해외 동시 거래 — 3가지 패턴을 독립 CTE로 각각 탐지한 뒤, 2개 이상에 해당하는 고객을 고위험
+              고객으로 선별합니다. 각 패턴의 탐지 여부를 Y/N으로 표시하여 운영팀이 바로 활용할 수 있는 형태로 출력합니다.</div>
+            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">Self-JOIN</span><span
+                class="tag">AVG() OVER</span><span class="tag">LEFT JOIN</span><span class="tag">점수 합산</span></div>
+          </div>
+          <a class="link-btn" href="./portfolio/06_multi_condition_detection/Q16_blacklist_detection.sql">SQL 보기</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Schema -->
-  <section class="section" id="schema">
-    <div class="section-header">
-      <span class="num">DB</span><h2>데이터 스키마</h2>
-    </div>
-    <div class="schema-box">
-      <pre>
+    <!-- Schema -->
+    <section class="section" id="schema">
+      <div class="section-header">
+        <span class="num">DB</span>
+        <h2>데이터 스키마</h2>
+      </div>
+      <div class="schema-box">
+        <pre>
 -- customers
 CREATE TABLE public.customers (
     customer_id    varchar(10)  PRIMARY KEY,
@@ -387,32 +632,33 @@ CREATE TABLE public.fraud_transactions (
     is_fraud      bool,
     fraud_type    varchar(20)
 );</pre>
-    </div>
-  </section>
+      </div>
+    </section>
 
-</main>
+  </main>
 
-<footer>
-  <p>FDS SQL Portfolio · 황티빅후엔 (Hoàng Thị Bích Huyền) ·
-    <a href="https://github.com/bichhuyen3108-max" target="_blank">GitHub</a> ·
-    <a href="https://bichhuyen3108-max.github.io/portfolio/" target="_blank">Portfolio</a> ·
-    <a href="./README.md">README</a>
-  </p>
-</footer>
+  <footer>
+    <p>FDS SQL Portfolio · 황티빅후엔 (Hoàng Thị Bích Huyền) ·
+      <a href="https://github.com/bichhuyen3108-max" target="_blank">GitHub</a> ·
+      <a href="https://bichhuyen3108-max.github.io/portfolio/" target="_blank">Portfolio</a> ·
+      <a href="./README.md">README</a>
+    </p>
+  </footer>
 
-<script>
-  const sections = document.querySelectorAll('section[id], div[id]');
-  const navLinks = document.querySelectorAll('nav a');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => a.classList.remove('active'));
-        const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { threshold: 0.3 });
-  sections.forEach(s => observer.observe(s));
-</script>
+  <script>
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('nav a');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const active = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(s => observer.observe(s));
+  </script>
 </body>
+
 </html>
