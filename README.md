@@ -101,7 +101,7 @@ fraud_transactions
 | A4_outofarea_analysis.sql | 타지역 거래 | fraud율 100%, 오탐 0건 — 최강 신호 |
 | A5_avg_multiplier_analysis.sql | 개인 평균 배수 | 3배 확정 (정탐률 100%) |
 
-### 08. 최종 최적화 Rule ⭐⭐⭐⭐⭐
+### 08. 비즈니스 목적별 최종 Rule 비교 ⭐⭐⭐⭐⭐
 
 | 파일 | 내용 | 결과 |
 |------|------|------|

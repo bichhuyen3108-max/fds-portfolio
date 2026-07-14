@@ -787,7 +787,7 @@
             평가 지표 정의</div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; color:#334155;">
             <span><strong>Precision (정밀도)</strong> = TP / (TP + FP) — 탐지 중 실제 fraud 비율</span>
-            <span><strong>Recall (재현율)</strong> = TP / (TP + FN) — 전체 fraud 중 탐지 비율</span>
+            <span><strong>Recall (재현율)</strong> = TP / (TP + FN) — 전체 실제 fraud 중 탐지 비율</span>
             <span><strong>False Positives (오탐 건수)</strong> — 정상 거래를 fraud로 잘못 탐지한 건수</span>
             <span><strong>FPR (오탐률)</strong> = FP / (FP + TN) — 정상 거래 중 오탐 비율</span>
           </div>
@@ -945,7 +945,8 @@
           <div style="background:linear-gradient(135deg,#d1fae5,#ecfdf5); border-radius:10px; padding:16px;">
             <div style="font-weight:800; color:#065f46; margin-bottom:8px;">📋 Scenario B — Recall 우선</div>
             <div style="font-size:0.85rem; color:#064e3b;">fraud miss cost가 높은 경우<br>→ FN 발생 = 손실·신뢰 타격<br>→
-              <strong>Recall 극대화 우선</strong><br><br>✅ <strong>Q17-B 선택</strong><br>FP 7건 감수, fraud 1건 추가 탐지</div>
+              <strong>Recall 극대화 우선</strong><br><br>✅ <strong>Q17-B 선택</strong><br>FP 7건 감수, fraud 1건 추가 탐지
+            </div>
           </div>
         </div>
         <div
