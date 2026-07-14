@@ -1,4 +1,10 @@
 -- Table: customers
+-- public.customers definition
+
+-- Drop table
+
+-- DROP TABLE public.customers;
+
 CREATE TABLE public.customers (
 	customer_id varchar(10) NOT NULL,
 	age int4 NULL,
@@ -13,6 +19,12 @@ CREATE TABLE public.customers (
 
 
 -- Table: fraud_transactions
+
+-- public.fraud_transactions definition
+
+-- Drop table
+
+-- DROP TABLE public.fraud_transactions;
 
 CREATE TABLE public.fraud_transactions (
 	txn_id varchar(12) NOT NULL,
@@ -31,4 +43,3 @@ CREATE TABLE public.fraud_transactions (
 -- public.fraud_transactions foreign keys
 
 ALTER TABLE public.fraud_transactions ADD CONSTRAINT fraud_transactions_customer_id_fkey FOREIGN KEY (customer_id) REFERENCES public.customers(customer_id);
-

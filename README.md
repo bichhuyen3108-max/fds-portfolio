@@ -11,9 +11,7 @@
 
 안녕하세요. 저는 베트남 출신으로 현재 한국에 거주하며 금융 데이터 분야에서 커리어를 쌓고 있습니다. 숭실대학교(Soongsil University)에서 Finance/Real Estate MBA를 마쳤고, 현재는 Korea IT Academy에서 JAVA & PYTHON 기반 빅데이터 분석 AI 플랫폼 개발자 과정을 수강 중입니다. TOPIK II 5급을 보유하고 있으며, SQL·Python을 활용한 데이터 분석 프로젝트를 꾸준히 진행하고 있습니다.
 
-금융권 Fraud Analyst 직무에 관심을 갖게 된 건 MBA 과정에서 금융 리스크와 데이터를 함께 다루면서부터입니다. 이상거래 탐지는 재무 지식과 데이터 분석이 결합되어야 하는 분야라, 제 배경을 가장 잘 살릴 수 있는 방향이라고 생각했습니다.
-
-이 포트폴리오는 Hanpass FDS 모니터링 업무를 염두에 두고, 실무에서 실제로 쓰일 수 있는 이상거래 탐지 쿼리를 PostgreSQL로 직접 구현한 것입니다. 단순 집계에서 시작해 Rule 성능 평가와 블랙리스트 탐지까지, 난이도를 단계적으로 높이는 방식으로 구성했습니다.
+이 포트폴리오는 Hanpass FDS 모니터링 업무를 염두에 두고, 실무에서 실제로 쓰일 수 있는 이상거래 탐지 쿼리를 PostgreSQL로 직접 구현한 것입니다. 데이터 파악 → 변수 분석 → AND/OR Rule 비교 → 최종 최적화 → 블랙리스트까지, 완결된 FDS 분석 흐름을 보여줍니다.
 
 ---
 
@@ -43,106 +41,84 @@ fraud_transactions
 └── fraud_type
 ```
 
-> 스키마 전체는 [`schema.sql`](./schema.sql)에서 확인할 수 있습니다.
-
 ---
 
-## 포트폴리오 구성
+## 포트폴리오 구성 (총 22개)
 
-총 16개 쿼리를 SQL 기법과 난이도 기준으로 6개 섹션으로 분류했습니다.
+### 01. 기본 집계 ⭐
 
----
+| 파일 | 내용 | 기법 |
+|------|------|------|
+| Q01_fraud_rate_overview.sql | 전체 fraud 건수 및 비율 | CASE WHEN, FILTER |
+| Q02_fraud_by_type.sql | fraud 유형별 건수·평균금액 | GROUP BY, AVG |
+| Q03_fraud_by_channel.sql | 채널별 fraud 건수 | FILTER |
+| Q14_fraud_by_credit_grade.sql | 신용등급별 fraud 발생률 | JOIN + GROUP BY |
 
-### 01. 기본 집계 (Basic Aggregation) ⭐
+### 02. 날짜·시간 함수 ⭐⭐
 
-FDS 데이터를 처음 접할 때 가장 먼저 확인하는 현황 파악 쿼리들입니다.
+| 파일 | 내용 | 기법 |
+|------|------|------|
+| Q04_late_night_analysis.sql | 새벽 정상 vs fraud 비교 | EXTRACT(HOUR) |
+| Q10_new_customer_fraud.sql | 가입 7일 이내 고액 거래 | INTERVAL |
+| Q12_monthly_fraud_trend.sql | 월별 fraud 추이 | DATE_TRUNC, CTE |
+| Q13_fraud_by_time_slot.sql | 시간대별 fraud 유형 분석 | EXTRACT + CASE WHEN |
 
-| 파일 | 내용 | 핵심 기법 |
-|------|------|-----------|
-| [Q01_fraud_rate_overview.sql](./portfolio/01_basic_aggregation/Q01_fraud_rate_overview.sql) | 전체 거래 중 fraud 건수 및 비율 | CASE WHEN, FILTER |
-| [Q02_fraud_by_type.sql](./portfolio/01_basic_aggregation/Q02_fraud_by_type.sql) | fraud 유형별 건수 및 평균 금액 | GROUP BY, AVG |
-| [Q03_fraud_by_channel.sql](./portfolio/01_basic_aggregation/Q03_fraud_by_channel.sql) | 채널별 fraud 발생 건수 | FILTER 집계 |
-| [Q14_fraud_by_credit_grade.sql](./portfolio/01_basic_aggregation/Q14_fraud_by_credit_grade.sql) | 신용등급별 fraud 발생률 | JOIN + GROUP BY |
+### 03. CTE ⭐⭐
 
----
+| 파일 | 내용 | 기법 |
+|------|------|------|
+| Q05_customer_avg_stats.sql | 고객 평균 거래 (서브쿼리 vs CTE) | WITH, 인라인 뷰 |
 
-### 02. 날짜·시간 함수 (Date-Time Functions) ⭐⭐
+### 04. JOIN 기반 탐지 ⭐⭐⭐
 
-거래 시간 패턴을 분석하는 쿼리들입니다. FDS에서 시간 정보는 매우 중요한 탐지 신호입니다.
+| 파일 | 내용 | 기법 |
+|------|------|------|
+| Q06_rapid_repeat_txn.sql | 1시간 내 2건+ 반복 거래 + string_agg | Self-JOIN, string_agg |
+| Q08_out_of_area_txn.sql | 거주지 외 도시 거래 탐지 | JOIN + 부등호 |
+| Q09_simultaneous_domestic_overseas.sql | 4일 이내 국내+해외 동시 거래 | Self-JOIN, BETWEEN |
 
-| 파일 | 내용 | 핵심 기법 |
-|------|------|-----------|
-| [Q04_late_night_analysis.sql](./portfolio/02_datetime_functions/Q04_late_night_analysis.sql) | 새벽(00~05시) 정상 vs fraud 비교 | EXTRACT(HOUR) |
-| [Q10_new_customer_fraud.sql](./portfolio/02_datetime_functions/Q10_new_customer_fraud.sql) | 가입 7일 이내 고액 거래 탐지 | 날짜 산술, INTERVAL |
-| [Q12_monthly_fraud_trend.sql](./portfolio/02_datetime_functions/Q12_monthly_fraud_trend.sql) | 월별 fraud 발생 추이 | DATE_TRUNC, CTE |
-| [Q13_fraud_by_time_slot.sql](./portfolio/02_datetime_functions/Q13_fraud_by_time_slot.sql) | fraud 유형별 주요 발생 시간대 분석 | EXTRACT + CASE WHEN |
+### 05. 윈도우 함수 ⭐⭐⭐
 
----
+| 파일 | 내용 | 기법 |
+|------|------|------|
+| Q07_high_value_anomaly.sql | 개인 평균 5배 이상 거래 탐지 | AVG() OVER PARTITION BY |
+| Q11_rule_tp_fp_analysis.sql | Rule 성능 — Precision/Recall/FP Rate | Multi-CTE + 스칼라 서브쿼리 |
 
-### 03. CTE (Common Table Expressions) ⭐⭐
+### 06. AND vs OR 복합 조건 비교 ⭐⭐⭐⭐
 
-서브쿼리와 CTE를 비교하고, 복잡한 쿼리를 단계별로 분리하는 방식을 다룹니다.
+| 파일 | 결과 | 기법 |
+|------|------|------|
+| Q15_composite_risk_score.sql | 정탐률 100%, 오탐 0건, 재현율 12% | 5조건 AND + JOIN customers |
+| Q16_or_composite_rule.sql | 재현율 100%, 오탐 1,412건 | 5 Rule OR + LEFT JOIN |
 
-| 파일 | 내용 | 핵심 기법 |
-|------|------|-----------|
-| [Q05_customer_avg_stats.sql](./portfolio/03_cte/Q05_customer_avg_stats.sql) | 고객 1인당 평균 거래 건수·금액 (서브쿼리 vs CTE 비교) | WITH, 인라인 뷰 |
+### 07. 변수 상관관계 분석 — Rule 임계값 근거 ⭐⭐⭐
 
----
+| 파일 | 검증 내용 | 결론 |
+|------|----------|------|
+| A1_time_fraud_rate.sql | 시간대별 fraud율 | 새벽 1~5시 확정 (fraud율 18~28%) |
+| A2_amount_threshold.sql | 금액 임계값 비교 | 50만원 확정 (정탐률 98.88%) |
+| A3_channel_analysis.sql | 채널별 fraud율 | ATM 제외 확정 (ATM 0%) |
+| A4_outofarea_analysis.sql | 타지역 거래 | fraud율 100%, 오탐 0건 — 최강 신호 |
+| A5_avg_multiplier_analysis.sql | 개인 평균 배수 | 3배 확정 (정탐률 100%) |
 
-### 04. JOIN 기반 이상거래 탐지 (JOIN-based Anomaly Detection) ⭐⭐⭐
+### 08. 최종 최적화 Rule ⭐⭐⭐⭐⭐
 
-여러 테이블 또는 같은 테이블을 두 번 조인하여 이상 패턴을 찾는 쿼리들입니다.
+| 파일 | 내용 | 결과 |
+|------|------|------|
+| Q17A_final_rule_no_overseas.sql | 3 Rule OR — 오탐 최소화 | 정탐률 100%, 오탐 0건 |
+| Q17B_final_rule_with_overseas.sql | 4 Rule OR — 재현율 향상 | 오탐 7건, fraud 1건 추가 |
 
-| 파일 | 내용 | 핵심 기법 |
-|------|------|-----------|
-| [Q06_rapid_repeat_txn.sql](./portfolio/04_join_anomaly_detection/Q06_rapid_repeat_txn.sql) | 1시간 내 3건 이상 반복 거래 탐지 (카드복제 패턴) | Self-JOIN, INTERVAL |
-| [Q08_out_of_area_txn.sql](./portfolio/04_join_anomaly_detection/Q08_out_of_area_txn.sql) | 거주지 외 도시 거래 탐지 | JOIN + 부등호 조건 |
-| [Q09_simultaneous_domestic_overseas.sql](./portfolio/04_join_anomaly_detection/Q09_simultaneous_domestic_overseas.sql) | 같은 날 국내+해외 동시 거래 (불가능 여행) | Self-JOIN, DATE() |
+### 09. 블랙리스트 탐지 ⭐⭐⭐⭐⭐
 
----
-
-### 05. 윈도우 함수 (Window Functions) ⭐⭐⭐
-
-개인화 탐지와 Rule 성능 분석에 윈도우 함수를 활용한 쿼리들입니다.
-
-| 파일 | 내용 | 핵심 기법 |
-|------|------|-----------|
-| [Q07_high_value_anomaly.sql](./portfolio/05_window_functions/Q07_high_value_anomaly.sql) | 고객 평균의 5배 이상 거래 탐지 | AVG() OVER (PARTITION BY) |
-| [Q11_rule_tp_fp_analysis.sql](./portfolio/05_window_functions/Q11_rule_tp_fp_analysis.sql) | Rule 성능 평가 — 정탐률 / 재현율 / 오탐률 | Multi-CTE + Window + 스칼라 서브쿼리 |
-
----
-
-### 06. 복합 조건 탐지 (Multi-condition Detection) ⭐⭐⭐⭐
-
-여러 위험 신호를 조합하여 고위험 거래와 고위험 고객을 선별하는 쿼리들입니다.
-
-| 파일 | 내용 | 핵심 기법 |
-|------|------|-----------|
-| [Q15_composite_risk_score.sql](./portfolio/06_multi_condition_detection/Q15_composite_risk_score.sql) | 새벽+고액+비대면+개인평균 5배 복합 탐지 + Rule 성능 평가 | CTE + Window + 다중 AND + 스칼라 서브쿼리 |
-| [Q16_blacklist_detection.sql](./portfolio/06_multi_condition_detection/Q16_blacklist_detection.sql) | 3가지 패턴 중 2개 이상 해당 고객 블랙리스트 탐지 | Multi-CTE + Self-JOIN + LEFT JOIN + 점수 합산 |
-
----
-
-## SQL 기법 요약
-
-| 기법 | 활용 쿼리 |
-|------|-----------|
-| FILTER 조건부 집계 | Q01, Q03, Q04, Q11, Q14, Q15 |
-| EXTRACT / DATE_TRUNC | Q04, Q12, Q13, Q15 |
-| 날짜 산술 (INTERVAL) | Q06, Q10, Q16 |
-| CTE (WITH) | Q05, Q07, Q11, Q12, Q15, Q16 |
-| Self-JOIN | Q06, Q09, Q16 |
-| Window Function (AVG OVER PARTITION BY) | Q07, Q11, Q15, Q16 |
-| 스칼라 서브쿼리 (분모 계산) | Q11, Q15 |
-| LEFT JOIN + 점수 합산 | Q16 |
-| 복합 조건 (AND + IN) | Q09, Q15 |
+| 파일 | 내용 | 결과 |
+|------|------|------|
+| Q18A_blacklist_3rules.sql | 거래→고객 단위, 3 Rule 블랙리스트 | 135명 탐지 |
+| Q18B_blacklist_4rules.sql | 해외이상 포함 + EXCEPT 검증 | 136명, fraud 1명 추가 확인 |
 
 ---
 
 ## 참고
 
-- 원본 쿼리 파일: [`Script-13.sql`](./Script-13.sql)
-- 테이블 스키마: [`schema.sql`](./schema.sql)
-- 포트폴리오 개별 파일: [`portfolio/`](./portfolio/) 디렉토리
+- 원본 쿼리: [`Script-13.sql`](./Script-13.sql) / 스키마: [`schema.sql`](./schema.sql)
 - GitHub: [bichhuyen3108-max](https://github.com/bichhuyen3108-max)
-- Portfolio site: [bichhuyen3108-max.github.io/portfolio](https://bichhuyen3108-max.github.io/portfolio/)
+- Portfolio: [bichhuyen3108-max.github.io/portfolio](https://bichhuyen3108-max.github.io/portfolio/)
