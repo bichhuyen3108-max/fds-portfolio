@@ -42,7 +42,7 @@
 
     header .badge {
       display: inline-block;
-      background: rgba(255,255,255,0.6);
+      background: rgba(255, 255, 255, 0.6);
       color: #2563eb;
       border: none;
       border-radius: 999px;
@@ -60,8 +60,8 @@
       height: 110px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid rgba(255,255,255,0.85);
-      box-shadow: 0 4px 24px rgba(37,99,235,0.18);
+      border: 4px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 4px 24px rgba(37, 99, 235, 0.18);
       margin-bottom: 20px;
       display: block;
       margin-left: auto;
@@ -115,8 +115,8 @@
       color: #334155;
       font-size: 0.82rem;
       text-decoration: none;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.9);
       border-radius: 999px;
       padding: 6px 18px;
       transition: all 0.2s;
@@ -133,7 +133,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255, 255, 255, 0.92);
       border-bottom: 1px solid var(--border);
       padding: 0 32px;
       display: flex;
@@ -171,7 +171,7 @@
       border-radius: 14px;
       padding: 28px;
       margin-bottom: 24px;
-      box-shadow: 0 2px 12px rgba(91,141,238,0.07);
+      box-shadow: 0 2px 12px rgba(91, 141, 238, 0.07);
     }
 
     .about-card h2 {
@@ -264,12 +264,12 @@
       grid-template-columns: 1fr auto;
       gap: 8px;
       transition: box-shadow 0.2s, border-color 0.2s;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
     }
 
     .query-card:hover {
       border-color: #93c5fd;
-      box-shadow: 0 4px 16px rgba(91,141,238,0.12);
+      box-shadow: 0 4px 16px rgba(91, 141, 238, 0.12);
     }
 
     .query-card .qid {
@@ -366,7 +366,7 @@
     <div class="badge">Financial Data Analyst · FDS SQL Portfolio</div>
     <img class="avatar" src="./photo.jpg" alt="황티빅후엔" />
     <h1>HOANG THI BICH HUYEN</h1>
-    <p>PostgreSQL 기반 이상거래 탐지 쿼리 포트폴리오 · 한패스 FDS 모니터링 지원</p>
+    <p>PostgreSQL 기반 이상금융거래 탐지 및 FDS Rule 설계 포트폴리오</p>
     <div class="meta">
       <span>👤 <strong>황티빅후엔 (HOANG THI BICH HUYEN)</strong></span>
       <span>🎓 <strong>숭실대학교 MBA (Finance/Real Estate)</strong></span>
@@ -401,12 +401,11 @@
     <div class="about-card" id="about">
       <h2>소개</h2>
       <p>안녕하세요. 베트남 출신으로 현재 한국에 거주하며 금융 데이터 분야에서 커리어를 쌓고 있습니다.
-        숭실대학교에서 Finance/Real Estate MBA를 마쳤고, 현재 Korea IT Academy에서
-        JAVA & PYTHON 기반 빅데이터 분석 AI 플랫폼 개발자 과정을 수강 중입니다.
-        SQL·Python을 활용한 데이터 분석 프로젝트를 꾸준히 진행하고 있습니다.</p>
-      <p>이 포트폴리오는 한패스 FDS 모니터링 업무를 염두에 두고,
-        실무에서 바로 쓸 수 있는 이상거래 탐지 쿼리를 PostgreSQL로 직접 구현한 것입니다.
-        단순 집계에서 시작해 Rule 성능 평가·블랙리스트 탐지까지 단계적으로 구성했습니다.</p>
+        숭실대학교에서 Finance/Real Estate MBA를 마쳤고, Korea IT Academy에서
+        JAVA & PYTHON 기반 빅데이터 분석 AI 플랫폼 개발자 과정을 수료했습니다.
+        교육 과정에서 습득한 SQL·Python 역량을 바탕으로 금융 및 FDS 데이터 분석 프로젝트를 진행해 왔습니다.</p>
+      <p>본 프로젝트는 FDS 모니터링 및 Rule 관리 업무를 염두에 두고,
+        PostgreSQL을 활용하여 이상거래 탐지 로직을 설계하고 Rule별 성능을 분석한 프로젝트입니다.</p>
     </div>
 
     <div class="project-card">
@@ -619,8 +618,10 @@
           <div>
             <div class="qid">A1</div>
             <div class="title">시간대별 Fraud율 분석 → 새벽 1~5시 조건 근거</div>
-            <div class="desc">새벽 1~5시 fraud율이 18~28%로 전체 평균(12%)의 1.5~2.3배임을 확인합니다. 감이 아닌 데이터로 시간 조건을 설계하는 과정을 보여줍니다.</div>
-            <div class="tags"><span class="tag">EXTRACT(HOUR)</span><span class="tag">FILTER</span><span class="tag">GROUP BY</span></div>
+            <div class="desc">새벽 1~5시 fraud율이 18~28%로 전체 평균(12%)의 1.5~2.3배임을 확인합니다. 감이 아닌 데이터로 시간 조건을 설계하는 과정을 보여줍니다.
+            </div>
+            <div class="tags"><span class="tag">EXTRACT(HOUR)</span><span class="tag">FILTER</span><span
+                class="tag">GROUP BY</span></div>
           </div>
           <a class="link-btn" href="./portfolio/07_variable_analysis/A1_time_fraud_rate.sql">SQL 보기</a>
         </div>
@@ -628,8 +629,10 @@
           <div>
             <div class="qid">A2</div>
             <div class="title">금액 임계값 비교 → 50만원 조건 근거</div>
-            <div class="desc">30만/50만/100만원 임계값별 정탐률·재현율을 비교합니다. 50만원이 정탐률 98.88%, 오탐 2건으로 최적 균형점임을 UNION ALL로 한 화면에 증명합니다.</div>
-            <div class="tags"><span class="tag">UNION ALL</span><span class="tag">FILTER</span><span class="tag">스칼라 서브쿼리</span></div>
+            <div class="desc">30만/50만/100만원 임계값별 정탐률·재현율을 비교합니다. 50만원이 정탐률 98.88%, 오탐 2건으로 최적 균형점임을 UNION ALL로 한 화면에
+              증명합니다.</div>
+            <div class="tags"><span class="tag">UNION ALL</span><span class="tag">FILTER</span><span class="tag">스칼라
+                서브쿼리</span></div>
           </div>
           <a class="link-btn" href="./portfolio/07_variable_analysis/A2_amount_threshold.sql">SQL 보기</a>
         </div>
@@ -637,17 +640,21 @@
           <div>
             <div class="qid">A3</div>
             <div class="title">채널별 Fraud율 분석 → ATM 제외 조건 근거</div>
-            <div class="desc">ATM fraud율 0%를 확인하고, 채널 단독 Rule이 정탐률 16~22%로 부적합함을 UNION ALL 비교로 보여줍니다. 채널이 AND 보조 조건으로만 유효함을 증명합니다.</div>
-            <div class="tags"><span class="tag">GROUP BY</span><span class="tag">UNION ALL</span><span class="tag">FILTER</span></div>
+            <div class="desc">ATM fraud율 0%를 확인하고, 채널 단독 Rule이 정탐률 16~22%로 부적합함을 UNION ALL 비교로 보여줍니다. 채널이 AND 보조 조건으로만
+              유효함을 증명합니다.</div>
+            <div class="tags"><span class="tag">GROUP BY</span><span class="tag">UNION ALL</span><span
+                class="tag">FILTER</span></div>
           </div>
           <a class="link-btn" href="./portfolio/07_variable_analysis/A3_channel_analysis.sql">SQL 보기</a>
         </div>
         <div class="query-card">
           <div>
             <div class="qid">A4</div>
-            <div class="title">타지역 거래 Fraud율 분석 → 가장 강력한 단독 Rule</div>
-            <div class="desc">타지역 거래 fraud율 100%, 오탐 0건 — 포트폴리오에서 가장 강력한 단독 fraud 시그널입니다. 거주 도시 JOIN 비교로 타지역 조건의 정탐률을 검증합니다.</div>
-            <div class="tags"><span class="tag">JOIN customers</span><span class="tag">CASE WHEN</span><span class="tag">FILTER</span></div>
+            <div class="title">타지역 거래 Fraud율 분석 → 높은 fraud 분리력 확인</div>
+            <div class="desc">본 synthetic dataset에서 타지역 거래 fraud율 100%, 오탐 0건으로 높은 분리력을 보였습니다. 다만 실무에서는 출장·여행 등 정상적 지역
+              이동이 존재하므로 단독 차단 Rule이 아닌 risk signal로 활용, 추가 검증이 필요합니다.</div>
+            <div class="tags"><span class="tag">JOIN customers</span><span class="tag">CASE WHEN</span><span
+                class="tag">FILTER</span></div>
           </div>
           <a class="link-btn" href="./portfolio/07_variable_analysis/A4_outofarea_analysis.sql">SQL 보기</a>
         </div>
@@ -655,8 +662,10 @@
           <div>
             <div class="qid">A5</div>
             <div class="title">개인 평균 배수 임계값 분석 → 3배 조건 근거</div>
-            <div class="desc">2배/3배/4배/5배 임계값별 성능을 비교합니다. 3배가 정탐률 100%, 오탐 0건으로 최적이며, fraud 평균금액이 정상보다 약 10배 높음을 기초 통계로 확인합니다.</div>
-            <div class="tags"><span class="tag">AVG() OVER</span><span class="tag">UNION ALL</span><span class="tag">Window Function</span></div>
+            <div class="desc">2배/3배/4배/5배 임계값별 성능을 비교합니다. 3배가 정탐률 100%, 오탐 0건으로 최적이며, fraud 평균금액이 정상보다 약 10배 높음을 기초 통계로
+              확인합니다.</div>
+            <div class="tags"><span class="tag">AVG() OVER</span><span class="tag">UNION ALL</span><span
+                class="tag">Window Function</span></div>
           </div>
           <a class="link-btn" href="./portfolio/07_variable_analysis/A5_avg_multiplier_analysis.sql">SQL 보기</a>
         </div>
@@ -674,8 +683,10 @@
           <div>
             <div class="qid">Q15</div>
             <div class="title">AND 복합 조건 탐지 — 정탐률 100%, 오탐 0건</div>
-            <div class="desc">변수 분석(A1~A5)으로 검증된 5가지 조건(새벽1~5시 + 50만원+ + ATM제외 + 타지역 + 평균3배)을 AND로 결합합니다. 정탐률 100%, 오탐 0건이지만 재현율 12%로 낮아 Q16 OR 설계의 필요성을 수치로 증명합니다.</div>
-            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">JOIN customers</span><span class="tag">AVG() OVER</span><span class="tag">다중 AND</span><span class="tag">스칼라 서브쿼리</span></div>
+            <div class="desc">변수 분석(A1~A5)으로 검증된 5가지 조건(새벽1~5시 + 50만원+ + ATM제외 + 타지역 + 평균3배)을 AND로 결합합니다. 정탐률 100%, 오탐
+              0건이지만 재현율 12%로 낮아 Q16 OR 설계의 필요성을 수치로 증명합니다.</div>
+            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">JOIN customers</span><span
+                class="tag">AVG() OVER</span><span class="tag">다중 AND</span><span class="tag">스칼라 서브쿼리</span></div>
           </div>
           <a class="link-btn" href="./portfolio/06_multi_condition_detection/Q15_composite_risk_score.sql">SQL 보기</a>
         </div>
@@ -683,8 +694,10 @@
           <div>
             <div class="qid">Q16</div>
             <div class="title">OR 복합 조건 탐지 — 재현율 100%, 오탐 과다</div>
-            <div class="desc">5가지 Rule을 OR로 결합하여 어느 하나라도 해당하는 거래를 탐지합니다. 재현율 100%이지만 오탐 1,412건으로 AND(Q15)의 반대 극단을 보여줍니다. 이 비교가 Q17 최적화 Rule 설계의 출발점이 됩니다.</div>
-            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">LEFT JOIN</span><span class="tag">점수 합산</span><span class="tag">UNION</span></div>
+            <div class="desc">5가지 Rule을 OR로 결합하여 어느 하나라도 해당하는 거래를 탐지합니다. 재현율 100%이지만 오탐 1,412건으로 AND(Q15)의 반대 극단을 보여줍니다.
+              이 비교가 Q17 최적화 Rule 설계의 출발점이 됩니다.</div>
+            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">LEFT JOIN</span><span class="tag">점수
+                합산</span><span class="tag">UNION</span></div>
           </div>
           <a class="link-btn" href="./portfolio/06_multi_condition_detection/Q16_or_composite_rule.sql">SQL 보기</a>
         </div>
@@ -695,15 +708,17 @@
     <section class="section" id="section8">
       <div class="section-header">
         <span class="num">08</span>
-        <h2>최종 최적화 Rule (Final Optimized Rules)</h2><span class="stars">⭐⭐⭐⭐⭐</span>
+        <h2>비즈니스 목적별 최종 Rule 비교 (Final Rule Comparison)</h2><span class="stars">⭐⭐⭐⭐⭐</span>
       </div>
       <div class="query-list">
         <div class="query-card">
           <div>
             <div class="qid">Q17-A</div>
             <div class="title">최종 Rule — 해외이상 제외 (오탐 최소화)</div>
-            <div class="desc">보이스피싱·타지역·고액 3개 Rule을 OR로 결합한 최종 최적화 Rule입니다. 정탐률 100%, 오탐 0건으로 한패스/현대카드처럼 오탐 최소화가 우선인 카드사에 최적입니다.</div>
-            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">LEFT JOIN</span><span class="tag">OR 복합</span><span class="tag">점수 합산</span></div>
+            <div class="desc">보이스피싱·타지역·고액 3개 Rule을 OR로 결합합니다. Precision 100%, 오탐 0건 — 정상 고객 차단 비용이 높아 오탐 최소화가 우선인 비즈니스
+              환경에 적합한 선택입니다. "최적"이 아닌 비용함수 기준의 선택임을 명시합니다.</div>
+            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">LEFT JOIN</span><span class="tag">OR
+                복합</span><span class="tag">점수 합산</span></div>
           </div>
           <a class="link-btn" href="./portfolio/08_final_rules/Q17A_final_rule_no_overseas.sql">SQL 보기</a>
         </div>
@@ -711,8 +726,10 @@
           <div>
             <div class="qid">Q17-B</div>
             <div class="title">최종 Rule — 해외이상 포함 (재현율 향상)</div>
-            <div class="desc">Q17-A에 해외이상 Rule(4일 이내 국내+해외 동시 사용)을 추가합니다. 오탐 7건이 추가되지만 Q17-A에서 놓친 fraud 1건을 탐지합니다. 재현율 우선(토스/카카오페이) 기업에 적합합니다.</div>
-            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">Self-JOIN</span><span class="tag">INTERVAL</span><span class="tag">비즈니스 비교</span></div>
+            <div class="desc">Q17-A에 해외이상 Rule(4일 이내 국내+해외 동시 사용)을 추가합니다. FP 7건이 추가되지만 Q17-A에서 놓친 fraud 1건(is_fraud=TRUE
+              검증)을 탐지합니다. fraud miss cost가 높아 Recall 우선이 필요한 비즈니스 환경에 적합한 선택입니다.</div>
+            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">Self-JOIN</span><span
+                class="tag">INTERVAL</span><span class="tag">비즈니스 비교</span></div>
           </div>
           <a class="link-btn" href="./portfolio/08_final_rules/Q17B_final_rule_with_overseas.sql">SQL 보기</a>
         </div>
@@ -730,8 +747,10 @@
           <div>
             <div class="qid">Q18-A</div>
             <div class="title">블랙리스트 고객 탐지 — 해외이상 제외 (135명)</div>
-            <div class="desc">Q17-A Rule을 고객 단위로 확장합니다. 3개 Rule 중 1개 이상 해당 거래 이력이 있는 고객 135명을 선별합니다. 거래 단위 탐지를 고객 리스크 관리로 연결하는 핵심 쿼리입니다.</div>
-            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">DISTINCT customer_id</span><span class="tag">LEFT JOIN</span><span class="tag">고객 단위 집계</span></div>
+            <div class="desc">Q17-A Rule을 고객 단위로 확장합니다. 3개 Rule 중 1개 이상 해당 거래 이력이 있는 고객 135명을 선별합니다. 거래 단위 탐지를 고객 리스크
+              관리로 연결하는 핵심 쿼리입니다.</div>
+            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">DISTINCT customer_id</span><span
+                class="tag">LEFT JOIN</span><span class="tag">고객 단위 집계</span></div>
           </div>
           <a class="link-btn" href="./portfolio/09_blacklist/Q18A_blacklist_3rules.sql">SQL 보기</a>
         </div>
@@ -739,8 +758,10 @@
           <div>
             <div class="qid">Q18-B</div>
             <div class="title">블랙리스트 고객 탐지 — 해외이상 포함 (136명) + EXCEPT 검증</div>
-            <div class="desc">Q17-B Rule 기반으로 136명을 탐지하고, EXCEPT로 Q18-A 대비 추가된 1명의 fraud 여부를 검증합니다. is_fraud = TRUE 확인으로 해외이상 Rule의 탐지 가치를 데이터로 증명합니다.</div>
-            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">EXCEPT</span><span class="tag">Self-JOIN</span><span class="tag">결과 검증</span></div>
+            <div class="desc">Q17-B Rule 기반으로 136명을 탐지하고, EXCEPT로 Q18-A 대비 추가된 1명의 fraud 여부를 검증합니다. is_fraud = TRUE 확인으로
+              해외이상 Rule의 탐지 가치를 데이터로 증명합니다.</div>
+            <div class="tags"><span class="tag">Multi-CTE</span><span class="tag">EXCEPT</span><span
+                class="tag">Self-JOIN</span><span class="tag">결과 검증</span></div>
           </div>
           <a class="link-btn" href="./portfolio/09_blacklist/Q18B_blacklist_4rules.sql">SQL 보기</a>
         </div>
@@ -757,68 +778,96 @@
       <!-- 핵심 인사이트 -->
       <div class="about-card" style="margin-bottom:16px;">
         <h2>📊 핵심 분석 결과 요약</h2>
-        <p style="margin-bottom:18px;">변수 분석(A1~A5)으로 데이터 기반 임계값을 도출하고, AND→OR→최적화 Rule 설계 과정을 거쳐 재현율을 3.5배 향상시켰습니다.</p>
+        <p style="margin-bottom:14px;">변수 분석(A1~A5)으로 데이터 기반 임계값을 도출하고, AND→OR→최적화 Rule 설계 과정을 거쳐 재현율을 3.5배 향상시켰습니다.</p>
+
+        <!-- 지표 용어 공식 -->
+        <div
+          style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:10px; padding:12px 16px; margin-bottom:14px; font-size:0.8rem;">
+          <div style="font-weight:800; color:#475569; margin-bottom:8px; font-size:0.72rem; letter-spacing:0.08em;">📐
+            평가 지표 정의</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; color:#334155;">
+            <span><strong>Precision (정밀도)</strong> = TP / (TP + FP) — 탐지 중 실제 fraud 비율</span>
+            <span><strong>Recall (재현율)</strong> = TP / (TP + FN) — 전체 fraud 중 탐지 비율</span>
+            <span><strong>False Positives (오탐 건수)</strong> — 정상 거래를 fraud로 잘못 탐지한 건수</span>
+            <span><strong>FPR (오탐률)</strong> = FP / (FP + TN) — 정상 거래 중 오탐 비율</span>
+          </div>
+          <div style="margin-top:6px; color:#64748b; font-style:italic;">※ 이 포트폴리오에서 "오탐 N건"은 FP 건수(False Positives)를,
+            "오탐률"은 FPR을 의미합니다.</div>
+        </div>
 
         <!-- 재현율 개선 여정 -->
-        <div style="background:linear-gradient(135deg,#eff6ff,#f0fdf4); border:1px solid #bfdbfe; border-radius:12px; padding:18px; margin-bottom:14px;">
-          <div style="font-size:0.72rem; font-weight:800; color:#2563eb; letter-spacing:0.1em; margin-bottom:12px;">🚀 핵심 성과 — 재현율 개선 여정</div>
+        <div
+          style="background:linear-gradient(135deg,#eff6ff,#f0fdf4); border:1px solid #bfdbfe; border-radius:12px; padding:18px; margin-bottom:14px;">
+          <div style="font-size:0.72rem; font-weight:800; color:#2563eb; letter-spacing:0.1em; margin-bottom:12px;">🚀
+            핵심 성과 — 재현율 개선 여정</div>
           <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-            <div style="text-align:center; background:white; border-radius:10px; padding:10px 16px; border:1px solid #e2e8f0;">
+            <div
+              style="text-align:center; background:white; border-radius:10px; padding:10px 16px; border:1px solid #e2e8f0;">
               <div style="font-size:0.7rem; color:#64748b; margin-bottom:2px;">Q15 AND 5조건</div>
               <div style="font-size:1.4rem; font-weight:900; color:#dc2626;">15.91%</div>
               <div style="font-size:0.68rem; color:#64748b;">재현율</div>
             </div>
             <div style="font-size:1.4rem; color:#94a3b8; font-weight:300;">→</div>
-            <div style="text-align:center; background:white; border-radius:10px; padding:10px 16px; border:1px solid #e2e8f0;">
+            <div
+              style="text-align:center; background:white; border-radius:10px; padding:10px 16px; border:1px solid #e2e8f0;">
               <div style="font-size:0.7rem; color:#64748b; margin-bottom:2px;">Q16 OR 5조건</div>
               <div style="font-size:1.4rem; font-weight:900; color:#f59e0b;">100%</div>
               <div style="font-size:0.68rem; color:#64748b;">재현율 (오탐 1,412건)</div>
             </div>
             <div style="font-size:1.4rem; color:#94a3b8; font-weight:300;">→</div>
-            <div style="text-align:center; background:white; border-radius:10px; padding:10px 16px; border:1px solid #bbf7d0;">
+            <div
+              style="text-align:center; background:white; border-radius:10px; padding:10px 16px; border:1px solid #bbf7d0;">
               <div style="font-size:0.7rem; color:#16a34a; margin-bottom:2px;">Q17-A 최적화</div>
               <div style="font-size:1.4rem; font-weight:900; color:#16a34a;">56.06%</div>
               <div style="font-size:0.68rem; color:#16a34a;">재현율 · 오탐 0건</div>
             </div>
             <div style="font-size:1.4rem; color:#94a3b8; font-weight:300;">→</div>
-            <div style="text-align:center; background:linear-gradient(135deg,#dbeafe,#d1fae5); border-radius:10px; padding:10px 16px; border:2px solid #2563eb;">
+            <div
+              style="text-align:center; background:linear-gradient(135deg,#dbeafe,#d1fae5); border-radius:10px; padding:10px 16px; border:2px solid #2563eb;">
               <div style="font-size:0.7rem; color:#2563eb; margin-bottom:2px;">Q17-B 해외이상 포함</div>
               <div style="font-size:1.4rem; font-weight:900; color:#1d4ed8;">56.44%</div>
               <div style="font-size:0.68rem; color:#1d4ed8;">재현율 · 오탐 7건</div>
             </div>
           </div>
           <div style="margin-top:12px; font-size:0.83rem; color:#1e40af; font-weight:600;">
-            📈 Q15 대비 Q17-A: 재현율 15.91% → 56.06% — <span style="background:#dbeafe; padding:2px 8px; border-radius:4px;">약 3.5배 향상!</span>
+            📈 Q15 대비 Q17-A: 재현율 15.91% → 56.06% — <span
+              style="background:#dbeafe; padding:2px 8px; border-radius:4px;">약 3.5배 향상!</span>
           </div>
         </div>
 
         <!-- 4개 지표 카드 -->
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px;">
           <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:14px;">
-            <div style="font-size:0.72rem; font-weight:800; color:#16a34a; letter-spacing:0.08em; margin-bottom:6px;">타지역 거래 (분석4)</div>
+            <div style="font-size:0.72rem; font-weight:800; color:#16a34a; letter-spacing:0.08em; margin-bottom:6px;">
+              타지역 거래 (분석4)</div>
             <div style="font-size:1.5rem; font-weight:900; color:#15803d;">100%</div>
-            <div style="font-size:0.8rem; color:#4b7c5a;">단독 정탐률 · 오탐 0건<br>포트폴리오 최강 단독 시그널</div>
+            <div style="font-size:0.8rem; color:#4b7c5a;">synthetic dataset 기준<br>높은 분리력 → risk signal 활용</div>
           </div>
           <div style="background:#fefce8; border:1px solid #fde68a; border-radius:10px; padding:14px;">
-            <div style="font-size:0.72rem; font-weight:800; color:#b45309; letter-spacing:0.08em; margin-bottom:6px;">AND vs OR 극단 비교</div>
+            <div style="font-size:0.72rem; font-weight:800; color:#b45309; letter-spacing:0.08em; margin-bottom:6px;">
+              AND vs OR 극단 비교</div>
             <div style="font-size:1.3rem; font-weight:900; color:#92400e;">Q15 vs Q16</div>
             <div style="font-size:0.8rem; color:#78593a;">AND: 정탐률 100% / 재현율 12%<br>OR: 재현율 100% / 오탐 1,412건</div>
           </div>
           <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:14px;">
-            <div style="font-size:0.72rem; font-weight:800; color:#2563eb; letter-spacing:0.08em; margin-bottom:6px;">Q17-A (오탐 최소화)</div>
+            <div style="font-size:0.72rem; font-weight:800; color:#2563eb; letter-spacing:0.08em; margin-bottom:6px;">
+              Q17-A (오탐 최소화)</div>
             <div style="font-size:1.5rem; font-weight:900; color:#1d4ed8;">100% / 0건</div>
-            <div style="font-size:0.8rem; color:#4b6cb7;">정탐률 / 오탐 · 한패스 기준 최적</div>
+            <div style="font-size:0.8rem; color:#4b6cb7;">Precision / FP · 오탐 최소화 우선 선택</div>
           </div>
           <div style="background:#fdf4ff; border:1px solid #e9d5ff; border-radius:10px; padding:14px;">
-            <div style="font-size:0.72rem; font-weight:800; color:#7c3aed; letter-spacing:0.08em; margin-bottom:6px;">블랙리스트 탐지</div>
+            <div style="font-size:0.72rem; font-weight:800; color:#7c3aed; letter-spacing:0.08em; margin-bottom:6px;">
+              블랙리스트 탐지</div>
             <div style="font-size:1.5rem; font-weight:900; color:#6d28d9;">135 vs 136명</div>
             <div style="font-size:0.8rem; color:#6b5b9e;">해외이상 포함 여부로 1명 차이<br>EXCEPT로 실제 fraud 검증 완료</div>
           </div>
         </div>
 
         <!-- 변수 분석 결과 요약 -->
-        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px; margin-bottom:14px;">
-          <div style="font-size:0.72rem; font-weight:800; color:#475569; letter-spacing:0.1em; margin-bottom:10px;">🔬 변수 분석 결과 — 데이터 기반 임계값 도출</div>
+        <div
+          style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px; margin-bottom:14px;">
+          <div style="font-size:0.72rem; font-weight:800; color:#475569; letter-spacing:0.1em; margin-bottom:10px;">🔬
+            변수 분석 결과 — 데이터 기반 임계값 도출</div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:0.83rem;">
             <div style="display:flex; gap:8px; align-items:flex-start;">
               <span style="color:#2563eb; font-weight:800; flex-shrink:0;">A1</span>
@@ -834,7 +883,8 @@
             </div>
             <div style="display:flex; gap:8px; align-items:flex-start;">
               <span style="color:#2563eb; font-weight:800; flex-shrink:0;">A4</span>
-              <span style="color:#334155;"><strong>타지역 거래</strong> — 타지역 fraud율 100% vs 거주지 3.93%. 오탐 0건으로 가장 강력한 단독 Rule 확정</span>
+              <span style="color:#334155;"><strong>타지역 거래</strong> — synthetic dataset 기준 fraud율 100% vs 거주지 3.93%. 높은
+                분리력 확인, 실무에서는 단독 차단이 아닌 risk signal로 활용</span>
             </div>
             <div style="display:flex; gap:8px; align-items:flex-start;">
               <span style="color:#2563eb; font-weight:800; flex-shrink:0;">A5</span>
@@ -845,20 +895,25 @@
 
         <!-- 제외된 Rule 설명 -->
         <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:16px;">
-          <div style="font-size:0.72rem; font-weight:800; color:#475569; letter-spacing:0.1em; margin-bottom:10px;">🚫 데이터 기반 Rule 제외 결정</div>
+          <div style="font-size:0.72rem; font-weight:800; color:#475569; letter-spacing:0.1em; margin-bottom:10px;">🚫
+            데이터 기반 Rule 제외 결정</div>
           <div style="display:flex; flex-direction:column; gap:8px; font-size:0.83rem;">
             <div style="display:flex; gap:8px; align-items:flex-start;">
-              <span style="background:#fee2e2; color:#dc2626; font-weight:700; font-size:0.7rem; padding:2px 7px; border-radius:4px; flex-shrink:0; margin-top:1px;">제외</span>
+              <span
+                style="background:#fee2e2; color:#dc2626; font-weight:700; font-size:0.7rem; padding:2px 7px; border-radius:4px; flex-shrink:0; margin-top:1px;">제외</span>
               <div style="color:#334155;">
                 <strong>입회사기 Rule</strong> — 가입 후 7일 이내 고액 거래를 입회사기로 탐지하는 Rule을 검토했지만 데이터로 검증한 결과 제외했습니다.
-                <div style="margin-top:8px; background:#fff5f5; border:1px solid #fecaca; border-radius:8px; padding:10px; font-size:0.8rem;">
+                <div
+                  style="margin-top:8px; background:#fff5f5; border:1px solid #fecaca; border-radius:8px; padding:10px; font-size:0.8rem;">
                   <div style="font-weight:700; color:#dc2626; margin-bottom:6px;">🔍 검증 결과</div>
                   <div style="color:#64748b; display:flex; flex-direction:column; gap:3px;">
-                    <span>• 가입 후 0~10일 fraud율: <strong style="color:#334155;">0% ~ 25% 불규칙 분포</strong> — 특정 기간에 집중되는 패턴 없음</span>
+                    <span>• 가입 후 0~10일 fraud율: <strong style="color:#334155;">0% ~ 25% 불규칙 분포</strong> — 특정 기간에 집중되는 패턴
+                      없음</span>
                     <span>• 일별 거래 건수: <strong style="color:#334155;">2~87건</strong> — 통계적 신뢰도 확보 불가</span>
                     <span>• 전체 평균 fraud율(12%)과 비교해 유의미한 차이 없음</span>
                   </div>
-                  <div style="font-weight:700; color:#dc2626; margin-top:8px; margin-bottom:4px;">📌 제외 근거 (데이터 기반 의사결정)</div>
+                  <div style="font-weight:700; color:#dc2626; margin-top:8px; margin-bottom:4px;">📌 제외 근거 (데이터 기반 의사결정)
+                  </div>
                   <div style="color:#64748b; display:flex; flex-direction:column; gap:3px;">
                     <span>① fraud율이 특정 가입 기간에 집중되지 않음</span>
                     <span>② 일별 거래 건수 부족 → 통계 신뢰도 낮음</span>
@@ -869,8 +924,10 @@
               </div>
             </div>
             <div style="display:flex; gap:8px; align-items:flex-start;">
-              <span style="background:#fef3c7; color:#b45309; font-weight:700; font-size:0.7rem; padding:2px 7px; border-radius:4px; flex-shrink:0; margin-top:1px;">2방향</span>
-              <span style="color:#334155;"><strong>해외이상 Rule</strong> — 4일째 fraud율 75%지만 총 4건으로 신뢰도 낮음. 비즈니스 목표에 따라 <strong>Q17-A (제외, 오탐 0건)</strong> vs <strong>Q17-B (포함, fraud 1명 추가)</strong> 두 방향을 모두 제시하고 비교.</span>
+              <span
+                style="background:#fef3c7; color:#b45309; font-weight:700; font-size:0.7rem; padding:2px 7px; border-radius:4px; flex-shrink:0; margin-top:1px;">2방향</span>
+              <span style="color:#334155;"><strong>해외이상 Rule</strong> — 4일째 fraud율 75%지만 총 4건으로 신뢰도 낮음. 비즈니스 목표에 따라
+                <strong>Q17-A (제외, 오탐 0건)</strong> vs <strong>Q17-B (포함, fraud 1명 추가)</strong> 두 방향을 모두 제시하고 비교.</span>
             </div>
           </div>
         </div>
@@ -881,13 +938,20 @@
         <h2>🏢 비즈니스 목표별 Rule 선택 가이드</h2>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
           <div style="background:linear-gradient(135deg,#dbeafe,#e0f2fe); border-radius:10px; padding:16px;">
-            <div style="font-weight:800; color:#1e40af; margin-bottom:8px;">🏦 한패스 / 현대카드</div>
-            <div style="font-size:0.85rem; color:#1e3a5f;">주요 수익 = 카드 수수료<br>→ 정상 고객 차단 = 수익 손실<br>→ <strong>오탐 최소화 우선</strong><br><br>✅ <strong>Q17-A 선택</strong><br>정탐률 100% + 오탐 0건</div>
+            <div style="font-weight:800; color:#1e40af; margin-bottom:8px;">📋 Scenario A — 오탐 최소화 우선</div>
+            <div style="font-size:0.85rem; color:#1e3a5f;">정상 고객 차단 비용이 높은 경우<br>→ FP 발생 = 고객 경험 저하<br>→ <strong>False
+                Positive 최소화 우선</strong><br><br>✅ <strong>Q17-A 선택</strong><br>Precision 100% + FP 0건 + Recall 56%</div>
           </div>
           <div style="background:linear-gradient(135deg,#d1fae5,#ecfdf5); border-radius:10px; padding:16px;">
-            <div style="font-weight:800; color:#065f46; margin-bottom:8px;">📱 토스 / 카카오페이</div>
-            <div style="font-size:0.85rem; color:#064e3b;">신뢰가 핵심 비즈니스<br>→ fraud 1건 = 브랜드 이미지 타격<br>→ <strong>재현율 우선</strong><br><br>✅ <strong>Q17-B 선택</strong><br>오탐 7건 감수, fraud 1건 추가 탐지</div>
+            <div style="font-weight:800; color:#065f46; margin-bottom:8px;">📋 Scenario B — Recall 우선</div>
+            <div style="font-size:0.85rem; color:#064e3b;">fraud miss cost가 높은 경우<br>→ FN 발생 = 손실·신뢰 타격<br>→
+              <strong>Recall 극대화 우선</strong><br><br>✅ <strong>Q17-B 선택</strong><br>FP 7건 감수, fraud 1건 추가 탐지</div>
           </div>
+        </div>
+        <div
+          style="margin-top:10px; background:#f1f5f9; border-radius:8px; padding:10px 14px; font-size:0.8rem; color:#475569;">
+          💡 <strong>이 포트폴리오는 한패스 FDS 모니터링 업무를 목표로 설계</strong>되었으나, 위 시나리오 선택은 각 기업의 공식 정책이 아닌 비용함수 관점의 분석입니다. 실제 임계값은
+          해당 기업의 데이터와 비즈니스 목표에 따라 재설정이 필요합니다.
         </div>
       </div>
 
@@ -895,21 +959,35 @@
       <div class="about-card" style="margin-bottom:16px;">
         <h2>⚠️ 데이터셋 한계 및 Rule 제약사항</h2>
         <div style="display:flex; flex-direction:column; gap:10px; margin-top:8px;">
-          <div style="background:#fff7ed; border-left:3px solid #fb923c; border-radius:0 8px 8px 0; padding:12px 16px; font-size:0.87rem;">
+          <div
+            style="background:#fff7ed; border-left:3px solid #fb923c; border-radius:0 8px 8px 0; padding:12px 16px; font-size:0.87rem;">
             <strong style="color:#c2410c;">① 입회사기 Rule 미포함</strong>
-            <p style="color:var(--muted); margin-top:4px;">join_date가 랜덤 생성되어 가입 직후 fraud 패턴 재현 불가. 실무 데이터에서는 가입 후 일수별 fraud율 분석으로 최적 임계값 도출 가능.</p>
+            <p style="color:var(--muted); margin-top:4px;">join_date가 랜덤 생성되어 가입 직후 fraud 패턴 재현 불가. 실무 데이터에서는 가입 후 일수별
+              fraud율 분석으로 최적 임계값 도출 가능.</p>
           </div>
-          <div style="background:#fff7ed; border-left:3px solid #fb923c; border-radius:0 8px 8px 0; padding:12px 16px; font-size:0.87rem;">
+          <div
+            style="background:#fff7ed; border-left:3px solid #fb923c; border-radius:0 8px 8px 0; padding:12px 16px; font-size:0.87rem;">
             <strong style="color:#c2410c;">② 카드복제(반복거래) Rule 효과 미미</strong>
-            <p style="color:var(--muted); margin-top:4px;">2,000건 소규모 데이터셋으로 1시간 내 반복 거래 패턴이 충분히 재현되지 않음. 실무 수백만 건 데이터에서는 패턴이 명확히 나타남.</p>
+            <p style="color:var(--muted); margin-top:4px;">2,000건 소규모 데이터셋으로 1시간 내 반복 거래 패턴이 충분히 재현되지 않음. 실무 수백만 건
+              데이터에서는 패턴이 명확히 나타남.</p>
           </div>
-          <div style="background:#fff7ed; border-left:3px solid #fb923c; border-radius:0 8px 8px 0; padding:12px 16px; font-size:0.87rem;">
+          <div
+            style="background:#fff7ed; border-left:3px solid #fb923c; border-radius:0 8px 8px 0; padding:12px 16px; font-size:0.87rem;">
             <strong style="color:#c2410c;">③ 해외이상 Rule 통계적 신뢰도 낮음</strong>
-            <p style="color:var(--muted); margin-top:4px;">국내+해외 동시 사용 사례가 4건으로 통계적 신뢰도 부족. 충분한 데이터 확보 시 더 정확한 임계값(일수) 도출 가능.</p>
+            <p style="color:var(--muted); margin-top:4px;">국내+해외 동시 사용 사례가 4건으로 통계적 신뢰도 부족. 충분한 데이터 확보 시 더 정확한 임계값(일수)
+              도출 가능.</p>
           </div>
-          <div style="background:#fff7ed; border-left:3px solid #fb923c; border-radius:0 8px 8px 0; padding:12px 16px; font-size:0.87rem;">
+          <div
+            style="background:#fff7ed; border-left:3px solid #fb923c; border-radius:0 8px 8px 0; padding:12px 16px; font-size:0.87rem;">
             <strong style="color:#c2410c;">④ 전반적 거래 건수 부족</strong>
-            <p style="color:var(--muted); margin-top:4px;">500명 고객 / 2,000건 거래로 실무 대비 규모가 작음. 수백만 건 기준이라면 더 정교한 Rule 설계 및 ML 기반 스코어링 도입 가능.</p>
+            <p style="color:var(--muted); margin-top:4px;">500명 고객 / 2,000건 거래로 실무 대비 규모가 작음. 수백만 건 기준이라면 더 정교한 Rule 설계
+              및 ML 기반 스코어링 도입 가능.</p>
+          </div>
+          <div
+            style="background:#fff7ed; border-left:3px solid #fb923c; border-radius:0 8px 8px 0; padding:12px 16px; font-size:0.87rem;">
+            <strong style="color:#c2410c;">⑤ Rule 성능 검증의 한계</strong>
+            <p style="color:var(--muted); margin-top:4px;">전체 데이터를 기반으로 임계값별 Precision과 Recall을 비교하여 Rule 기준을 선정함. 현재 성능
+              지표는 본 데이터셋을 기준으로 산출된 결과이며, 실무에서는 과거 데이터로 Rule을 설계한 후 별도 기간의 데이터에 적용하여 성능 안정성을 추가 검증할 필요가 있음.</p>
           </div>
         </div>
       </div>
@@ -918,13 +996,24 @@
       <div class="about-card">
         <h2>✅ 데이터로 증명된 핵심 결론</h2>
         <div style="display:flex; flex-direction:column; gap:8px; margin-top:10px; font-size:0.87rem;">
-          <div style="display:flex; align-items:flex-start; gap:10px;"><span style="color:#16a34a; font-weight:800; flex-shrink:0;">①</span><span><strong>타지역 fraud율 100%</strong> — 타지역 거래는 오탐 0건으로 가장 신뢰할 수 있는 Rule 조건</span></div>
-          <div style="display:flex; align-items:flex-start; gap:10px;"><span style="color:#16a34a; font-weight:800; flex-shrink:0;">②</span><span><strong>새벽 1~5시 fraud율 18~28%</strong> — 전체 평균(12%) 대비 1.5~2.3배, 시간 조건 유효성 확인</span></div>
-          <div style="display:flex; align-items:flex-start; gap:10px;"><span style="color:#16a34a; font-weight:800; flex-shrink:0;">③</span><span><strong>50만원 임계값</strong> — 정탐률 98.88%, 오탐 2건으로 카드사 환경에서 최적 균형점</span></div>
-          <div style="display:flex; align-items:flex-start; gap:10px;"><span style="color:#16a34a; font-weight:800; flex-shrink:0;">④</span><span><strong>개인 평균 3배 임계값</strong> — 정탐률 100%, 오탐 0건. 절대 금액이 아닌 개인화 탐지의 효과 증명</span></div>
-          <div style="display:flex; align-items:flex-start; gap:10px;"><span style="color:#16a34a; font-weight:800; flex-shrink:0;">⑤</span><span><strong>ATM 채널 제외</strong> — ATM fraud율 0% 확인, 불필요한 오탐 원천 제거</span></div>
+          <div style="display:flex; align-items:flex-start; gap:10px;"><span
+              style="color:#16a34a; font-weight:800; flex-shrink:0;">①</span><span><strong>타지역 fraud율 100%</strong> —
+              타지역 거래는 오탐 0건으로 가장 신뢰할 수 있는 Rule 조건</span></div>
+          <div style="display:flex; align-items:flex-start; gap:10px;"><span
+              style="color:#16a34a; font-weight:800; flex-shrink:0;">②</span><span><strong>새벽 1~5시 fraud율
+                18~28%</strong> — 전체 평균(12%) 대비 1.5~2.3배, 시간 조건 유효성 확인</span></div>
+          <div style="display:flex; align-items:flex-start; gap:10px;"><span
+              style="color:#16a34a; font-weight:800; flex-shrink:0;">③</span><span><strong>50만원 임계값</strong> — 정탐률
+              98.88%, 오탐 2건으로 카드사 환경에서 최적 균형점</span></div>
+          <div style="display:flex; align-items:flex-start; gap:10px;"><span
+              style="color:#16a34a; font-weight:800; flex-shrink:0;">④</span><span><strong>개인 평균 3배 임계값</strong> — 정탐률
+              100%, 오탐 0건. 절대 금액이 아닌 개인화 탐지의 효과 증명</span></div>
+          <div style="display:flex; align-items:flex-start; gap:10px;"><span
+              style="color:#16a34a; font-weight:800; flex-shrink:0;">⑤</span><span><strong>ATM 채널 제외</strong> — ATM
+              fraud율 0% 확인, 불필요한 오탐 원천 제거</span></div>
         </div>
-        <p style="margin-top:16px; font-size:0.87rem; color:var(--muted); border-top:1px solid var(--border); padding-top:14px;">
+        <p
+          style="margin-top:16px; font-size:0.87rem; color:var(--muted); border-top:1px solid var(--border); padding-top:14px;">
           단일 정답은 없습니다. 비즈니스 목표(오탐 최소화 vs 재현율 최대화)에 따라 Rule을 선택해야 하며,
           이 포트폴리오는 그 판단의 근거를 데이터로 제시하는 것을 목표로 합니다.
         </p>
@@ -969,9 +1058,9 @@ CREATE TABLE public.fraud_transactions (
   </main>
 
   <footer>
-    <p>FDS SQL Portfolio · 황티빅후엔 (Hoàng Thị Bích Huyền) ·
-      <a href="https://github.com/bichhuyen3108-max" target="_blank">GitHub</a> ·
-      <a href="https://bichhuyen3108-max.github.io/portfolio/" target="_blank">Portfolio</a> ·
+    <p>FDS SQL Portfolio · 황티빅후엔 (Hoang Thi Bich Huyen) ·
+      <a href="https://github.com/bichhuyen3108-max" target="_blank">GitHub Profile</a> ·
+      <a href="https://bichhuyen3108-max.github.io/portfolio/" target="_blank">Semiconductor Portfolio</a> ·
       <a href="./README.md">README</a>
     </p>
   </footer>
