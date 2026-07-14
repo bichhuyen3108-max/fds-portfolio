@@ -1,17 +1,16 @@
 # SQL Portfolio — 이상금융거래탐지 (FDS)
 
-> **지원 직무:** FDS 모니터링 / Fraud Analyst  
-> **지원 기업:** Hanpass  
+> **지원 직무:** FDS 모니터링   
 > **사용 DB:** PostgreSQL  
-> **작성자:** Hoàng Thị Bích Huyền (황티빅후엔)
+> **작성자:** HOANG THI BICH HUYEN (황티빅후엔)
 
 ---
 
 ## 소개
 
-안녕하세요. 저는 베트남 출신으로 현재 한국에 거주하며 금융 데이터 분야에서 커리어를 쌓고 있습니다. 숭실대학교(Soongsil University)에서 Finance/Real Estate MBA를 마쳤고, 현재는 Korea IT Academy에서 JAVA & PYTHON 기반 빅데이터 분석 AI 플랫폼 개발자 과정을 수강 중입니다. TOPIK II 5급을 보유하고 있으며, SQL·Python을 활용한 데이터 분석 프로젝트를 꾸준히 진행하고 있습니다.
+안녕하세요. 저는 베트남 출신으로 현재 한국에 거주하며 금융 데이터 분야에서 커리어를 쌓고 있습니다. 숭실대학교(Soongsil University)에서 Finance/Real Estate MBA를 마쳤고, Korea IT Academy에서 JAVA & PYTHON 기반 빅데이터 분석 AI 플랫폼 개발자 과정을 수료하였습니다. SQL·Python을 활용한 데이터 분석 프로젝트를 꾸준히 진행하고 있습니다.
 
-이 포트폴리오는 Hanpass FDS 모니터링 업무를 염두에 두고, 실무에서 실제로 쓰일 수 있는 이상거래 탐지 쿼리를 PostgreSQL로 직접 구현한 것입니다. 데이터 파악 → 변수 분석 → AND/OR Rule 비교 → 최종 최적화 → 블랙리스트까지, 완결된 FDS 분석 흐름을 보여줍니다.
+이 포트폴리오는 FDS 모니터링 업무를 염두에 두고, 실무에서 실제로 쓰일 수 있는 이상거래 탐지 쿼리를 PostgreSQL로 직접 구현한 것입니다. 데이터 파악 → 변수 분석 → AND/OR Rule 비교 → 비즈니스 목적별 최종 Rule 비교 → 블랙리스트까지, 완결된 FDS 분석 흐름을 보여줍니다.
 
 ---
 
@@ -84,35 +83,35 @@ fraud_transactions
 | Q07_high_value_anomaly.sql | 개인 평균 5배 이상 거래 탐지 | AVG() OVER PARTITION BY |
 | Q11_rule_tp_fp_analysis.sql | Rule 성능 — Precision/Recall/FP Rate | Multi-CTE + 스칼라 서브쿼리 |
 
-### 06. AND vs OR 복합 조건 비교 ⭐⭐⭐⭐
-
-| 파일 | 결과 | 기법 |
-|------|------|------|
-| Q15_composite_risk_score.sql | 정탐률 100%, 오탐 0건, 재현율 12% | 5조건 AND + JOIN customers |
-| Q16_or_composite_rule.sql | 재현율 100%, 오탐 1,412건 | 5 Rule OR + LEFT JOIN |
-
-### 07. 변수 상관관계 분석 — Rule 임계값 근거 ⭐⭐⭐
+### 06. 변수 상관관계 분석 — Rule 임계값 근거 ⭐⭐⭐
 
 | 파일 | 검증 내용 | 결론 |
 |------|----------|------|
 | A1_time_fraud_rate.sql | 시간대별 fraud율 | 새벽 1~5시 확정 (fraud율 18~28%) |
-| A2_amount_threshold.sql | 금액 임계값 비교 | 50만원 확정 (정탐률 98.88%) |
-| A3_channel_analysis.sql | 채널별 fraud율 | ATM 제외 확정 (ATM 0%) |
-| A4_outofarea_analysis.sql | 타지역 거래 | fraud율 100%, 오탐 0건 — 최강 신호 |
-| A5_avg_multiplier_analysis.sql | 개인 평균 배수 | 3배 확정 (정탐률 100%) |
+| A2_amount_threshold.sql | 금액 임계값 비교 | 50만원 확정 (Precision 98.88%, FP 2건) |
+| A3_channel_analysis.sql | 채널별 fraud율 | ATM 제외 확정 (ATM fraud율 0%) |
+| A4_outofarea_analysis.sql | 타지역 거래 | synthetic dataset 기준 fraud율 100% — 높은 분리력 확인, 실무에서는 risk signal로 활용 |
+| A5_avg_multiplier_analysis.sql | 개인 평균 배수 | 3배 확정 (Precision 100%, FP 0건) |
+
+### 07. AND vs OR 복합 조건 비교 ⭐⭐⭐⭐
+
+| 파일 | 결과 | 기법 |
+|------|------|------|
+| Q15_composite_risk_score.sql | Precision 100%, FP 0건, Recall 12% | 5조건 AND + JOIN customers |
+| Q16_or_composite_rule.sql | Recall 100%, FP 1,412건 | 5 Rule OR + LEFT JOIN |
 
 ### 08. 비즈니스 목적별 최종 Rule 비교 ⭐⭐⭐⭐⭐
 
 | 파일 | 내용 | 결과 |
 |------|------|------|
-| Q17A_final_rule_no_overseas.sql | 3 Rule OR — 오탐 최소화 | 정탐률 100%, 오탐 0건 |
-| Q17B_final_rule_with_overseas.sql | 4 Rule OR — 재현율 향상 | 오탐 7건, fraud 1건 추가 |
+| Q17A_final_rule_no_overseas.sql | 3 Rule OR — FP 최소화 (Scenario A) | Precision 100%, FP 0건, Recall 56% |
+| Q17B_final_rule_with_overseas.sql | 4 Rule OR — Recall 향상 (Scenario B) | FP 7건, fraud 1건 추가 탐지 |
 
 ### 09. 블랙리스트 탐지 ⭐⭐⭐⭐⭐
 
 | 파일 | 내용 | 결과 |
 |------|------|------|
-| Q18A_blacklist_3rules.sql | 거래→고객 단위, 3 Rule 블랙리스트 | 135명 탐지 |
+| Q18A_blacklist_3rules.sql | 거래→고객 단위, 3 Rule 블랙리스트 | 135명 탐지, FP 0건 |
 | Q18B_blacklist_4rules.sql | 해외이상 포함 + EXCEPT 검증 | 136명, fraud 1명 추가 확인 |
 
 ---
@@ -121,4 +120,4 @@ fraud_transactions
 
 - 원본 쿼리: [`Script-13.sql`](./Script-13.sql) / 스키마: [`schema.sql`](./schema.sql)
 - GitHub: [bichhuyen3108-max](https://github.com/bichhuyen3108-max)
-- Portfolio: [bichhuyen3108-max.github.io/portfolio](https://bichhuyen3108-max.github.io/portfolio/)
+- Portfolio: [bichhuyen3108-max.github.io/fds-portfolio](https://bichhuyen3108-max.github.io/fds-portfolio/)
