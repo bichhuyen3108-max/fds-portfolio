@@ -97,14 +97,14 @@ fraud_transactions
 
 | 파일 | 결과 | 기법 |
 |------|------|------|
-| Q15_composite_risk_score.sql | Precision 100%, FP 0건, Recall 12% | 5조건 AND + JOIN customers |
+| Q15_composite_risk_score.sql | Precision 100%, FP 0건, Recall 12.12% | 5조건 AND + JOIN customers |
 | Q16_or_composite_rule.sql | Recall 100%, FP 1,412건 | 5 Rule OR + LEFT JOIN |
 
 ### 08. 비즈니스 목적별 최종 Rule 비교 ⭐⭐⭐⭐⭐
 
 | 파일 | 내용 | 결과 |
 |------|------|------|
-| Q17A_final_rule_no_overseas.sql | 3 Rule OR — FP 최소화 (Scenario A) | Precision 100%, FP 0건, Recall 56% |
+| Q17A_final_rule_no_overseas.sql | 3 Rule OR — FP 최소화 (Scenario A) | Precision 100%, FP 0건, Recall 56.06% |
 | Q17B_final_rule_with_overseas.sql | 4 Rule OR — Recall 향상 (Scenario B) | FP 7건, fraud 1건 추가 탐지 |
 
 ### 09. 블랙리스트 탐지 ⭐⭐⭐⭐⭐
